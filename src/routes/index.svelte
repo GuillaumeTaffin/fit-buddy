@@ -2,6 +2,6 @@
 
 </script>
 
-<h1 class='text-3xl font-bold underline'>
+<h1>
     You are IN!
 </h1>

@@ -1,3 +1,22 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+    --primary: #FF7043;
+    --primary-dark: #BF360C;
+    --primary-light: #FF8A65;
+    --white: #FAFAFA;
+}
+
+* {
+    background: transparent;
+    color: var(--white);
+    font-family: Roboto, sans-serif;
+}
+
+html, body {
+    margin: 0;
+    height: 100%;
+    background: #263238;
+}
