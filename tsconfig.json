@@ -2,5 +2,8 @@
   "extends": "./.svelte-kit/tsconfig.json",
   "include": [
     "./jest-setup.ts"
-  ]
+  ],
+  "compilerOptions": {
+    "strict": true
+  }
 }
