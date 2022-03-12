@@ -14,6 +14,8 @@
         loading = false;
     });
 
+    $: authenticated = $userStore.authenticated;
+
 </script>
 
 <svelte:head>
@@ -27,7 +29,7 @@
     </div>
 {:else}
     <div transition:fade class='h-screen w-screen'>
-        {#if $userStore.authenticated}
+        {#if authenticated}
             <slot />
         {:else}
             <AuthPage />
