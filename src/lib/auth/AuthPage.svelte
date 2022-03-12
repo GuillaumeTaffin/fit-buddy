@@ -9,7 +9,7 @@
 <div id='page' class='h-screen bg-[color:var(--primary-dark)] flex flex-col justify-center p-4'>
 
     <div>
-        <img src='static/logo512.png' alt='Fit-Buddy logo' class='w-52 m-auto'>
+        <img src='logo512.png' alt='Fit-Buddy logo' class='w-52 m-auto'>
         <br>
         <h1 class='text-3xl font-bold text-center tracking-widest'>
             FIT-BUDDY
