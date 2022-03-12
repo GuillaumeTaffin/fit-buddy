@@ -3,10 +3,17 @@
     import { onMount } from 'svelte';
     import { userStore } from '../lib/stores';
     import AuthPage from '../lib/auth/AuthPage.svelte';
+    import { fade } from 'svelte/transition';
 
-    onMount(function() {
-        userStore.getCurrentUser();
+    let loading = true;
+
+    onMount(async () => {
+        loading = true;
+        await userStore.getCurrentUser();
+        await new Promise(r => setTimeout(r, 500));
+        loading = false;
     });
+
 </script>
 
 <svelte:head>
@@ -14,8 +21,16 @@
     <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto+Mono' />
 </svelte:head>
 
-{#if $userStore.authenticated}
-    <slot />
+{#if loading}
+    <div class='flex flex-col justify-center h-screen items-center'>
+        <img src='spinner-bg-light.gif' alt='spinner' class='w-32'>
+    </div>
 {:else}
-    <AuthPage />
+    <div transition:fade class='h-screen w-screen'>
+        {#if $userStore.authenticated}
+            <slot />
+        {:else}
+            <AuthPage />
+        {/if}
+    </div>
 {/if}

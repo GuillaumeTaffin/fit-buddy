@@ -7,16 +7,17 @@
     --primary-dark: #BF360C;
     --primary-light: #FF8A65;
     --white: #FAFAFA;
+    --black: #263238;
 }
 
 * {
     background: transparent;
-    color: var(--white);
+    color: var(--black);
     font-family: Roboto, sans-serif;
 }
 
 html, body {
     margin: 0;
     height: 100%;
-    background: #263238;
+    background: var(--white);
 }
