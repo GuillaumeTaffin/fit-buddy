@@ -6,11 +6,12 @@
     let password = '';
 </script>
 
-<div id='page' class='h-screen bg-[color:var(--primary-dark)] flex flex-col justify-center'>
+<div id='page' class='h-screen bg-[color:var(--primary-dark)] flex flex-col justify-center p-4'>
 
-    <div class=''>
+    <div>
         <img src='static/logo512.png' alt='Fit-Buddy logo' class='w-52 m-auto'>
-        <h1 class='text-3xl font-bold text-center'>
+        <br>
+        <h1 class='text-3xl font-bold text-center tracking-widest'>
             FIT-BUDDY
         </h1>
         <br>
@@ -25,7 +26,7 @@
             <br>
             <div class='text-center'>
                 <input type='submit' value='SUBMIT'
-                       class='px-4 py-2 hover:bg-[color:var(--primary-light)] bg-[color:var(--primary)] rounded-md'>
+                       class='px-4 py-2 hover:bg-[color:var(--primary-light)] bg-[color:var(--primary)] active:bg-[color:var(--primary)] rounded-md'>
             </div>
         </form>
     </div>
