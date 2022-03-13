@@ -3,7 +3,7 @@
     import { onMount } from 'svelte';
     import { userStore } from '../lib/stores';
     import AuthPage from '../lib/auth/AuthPage.svelte';
-    import { fade } from 'svelte/transition';
+    import AppBar from '../lib/components/AppBar.svelte';
 
     let loading = true;
 
@@ -28,8 +28,10 @@
         <img src='spinner-bg-light.gif' alt='spinner' class='w-32'>
     </div>
 {:else}
-    <div transition:fade class='h-screen w-screen'>
+    <div class='h-screen w-screen'>
         {#if authenticated}
+
+            <AppBar />
             <slot />
         {:else}
             <AuthPage />
