@@ -3,5 +3,5 @@
 </script>
 
 <h1>
-    You are IN!
+    <a href='/workouts'>Your workouts!</a>
 </h1>
