@@ -4,6 +4,6 @@
     export { clazz as class };
 </script>
 
-<div class='shadow rounded-md {clazz}'>
+<div class='rounded-md {clazz}'>
     <slot />
 </div>
