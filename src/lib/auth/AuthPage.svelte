@@ -1,6 +1,7 @@
 <script lang='ts'>
     import { userStore } from '$lib/stores';
     import TextField from '../components/TextField.svelte';
+    import Logo from '../components/Logo.svelte';
 
     let email = '';
     let password = '';
@@ -9,10 +10,10 @@
 <div id='page' class='h-screen bg-[color:var(--primary-dark)] flex flex-col justify-center p-4'>
 
     <div>
-        <img src='logo512.png' alt='Fit-Buddy logo' class='w-52 m-auto'>
+        <Logo class='w-52 m-auto' />
         <br>
         <h1 class='text-3xl font-bold text-center tracking-widest text-[color:var(--white)]'>
-            FIT-BUDDY
+            FIT BUDDY
         </h1>
         <br>
         <form on:submit|preventDefault={() => userStore.signIn(email, password)}>
