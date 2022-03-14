@@ -11,7 +11,7 @@
     const submitActionText = (signIn: boolean) => signIn ? 'SIGN IN' : 'CREATE ACCOUNT';
 
     $: submitButtonText = submitActionText(isSignIn);
-    $: submitAction = isSignIn ? userStore.signIn(email, password) : userStore.signUp(email, password);
+    $: submitAction = isSignIn ? () => userStore.signIn(email, password) : () => userStore.signUp(email, password);
     $: switchButtonText = submitActionText(!isSignIn);
     $: switchLabelText = isSignIn ? 'Not member already ?' : 'Already member ?';
 
@@ -27,7 +27,7 @@
                 FIT BUDDY
             </h1>
             <br>
-            <form on:submit|preventDefault={() => submitAction()}>
+            <form on:submit|preventDefault={submitAction}>
                 <div class='max-w-sm m-auto'>
                     <TextField hint='Your e-mail' bind:text={email} />
                 </div>
