@@ -4,13 +4,8 @@
     import { userStore } from '../lib/stores';
     import AuthPage from '../lib/auth/AuthPage.svelte';
 
-    let loading = true;
-
     onMount(async () => {
-        loading = true;
         await userStore.getCurrentUser();
-        await new Promise(r => setTimeout(r, 500));
-        loading = false;
     });
 
     $: authenticated = $userStore.authenticated;
@@ -24,15 +19,9 @@
 
 
 <div class='h-screen w-screen  bg-gradient-to-br from-primary-dark to-accent-light'>
-    {#if loading}
-        <div class='flex flex-col justify-center h-screen items-center'>
-            <img src='spinner-bg-light.gif' alt='spinner' class='w-32'>
-        </div>
+    {#if authenticated}
+        <slot />
     {:else}
-        {#if authenticated}
-            <slot />
-        {:else}
-            <AuthPage />
-        {/if}
+        <AuthPage />
     {/if}
 </div>
