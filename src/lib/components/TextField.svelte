@@ -10,4 +10,4 @@
 <input {type}
        placeholder={hint}
        on:change={val => text = val.target.value}
-       class='bg-[color:var(--white)] text-black w-full p-4 outline-[color:var(--primary-dark)] rounded-md text-[color:var(--black)]'>
+       class='bg-white text-black w-full p-4 outline-primary-dark rounded-md text-black'>
