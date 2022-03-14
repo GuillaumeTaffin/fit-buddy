@@ -27,7 +27,7 @@
                 FIT BUDDY
             </h1>
             <br>
-            <form on:submit|preventDefault={() => userStore.signIn(email, password)}>
+            <form on:submit|preventDefault={() => submitAction()}>
                 <div class='max-w-sm m-auto'>
                     <TextField hint='Your e-mail' bind:text={email} />
                 </div>
