@@ -11,4 +11,9 @@ export class SupabaseAuthRepository implements AuthRepository {
         const response = await client.auth.signIn({ email: email, password: password });
         return response.user == null ? User.undefined() : User.authenticated();
     }
+
+    async signUp(email: string, password: string): Promise<User> {
+        const response = await client.auth.signUp({ email: email, password: password });
+        return response.user == null ? User.undefined() : User.authenticated();
+    }
 }

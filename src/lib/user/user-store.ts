@@ -25,4 +25,9 @@ export class UserStore {
         const user = await this.authRepository.signIn(email, password);
         this.user.set(user);
     }
+
+    async signUp(email: string, password: string) {
+        const user = await this.authRepository.signUp(email, password);
+        this.user.set(user);
+    }
 }

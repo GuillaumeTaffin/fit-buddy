@@ -35,6 +35,22 @@ test('Sign in not successful', async () => {
     expect(user!.authenticated).not.toBeTruthy();
 });
 
+test('Sign up successful', async () => {
+    const store = new UserStore(new FakeAuthRepository(true));
+    let user: User;
+    store.subscribe((state) => user = state);
+    await store.signUp('email', 'password');
+    expect(user!.authenticated).toBeTruthy();
+});
+
+test('Sign up not successful', async () => {
+    const store = new UserStore(new FakeAuthRepository(false));
+    let user: User;
+    store.subscribe((state) => user = state);
+    await store.signUp('email', 'password');
+    expect(user!.authenticated).not.toBeTruthy();
+});
+
 class FakeAuthRepository implements AuthRepository {
     private readonly user;
 
@@ -47,6 +63,10 @@ class FakeAuthRepository implements AuthRepository {
     }
 
     signIn(email: string, password: string): Promise<User> {
+        return Promise.resolve(this.user);
+    }
+
+    signUp(email: string, password: string): Promise<User> {
         return Promise.resolve(this.user);
     }
 
