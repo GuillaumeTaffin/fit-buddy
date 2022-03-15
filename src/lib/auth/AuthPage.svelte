@@ -29,7 +29,7 @@
                 <TextField hint='Your e-mail' bind:text={email} />
                 <TextField type='password' hint='Your password' bind:text={password} />
                 <input type='submit' value='{submitButtonText}'
-                       class='w-fit px-4 py-2 hover:bg-primary shadow-lg shadow-primary-dark active:shadow-none bg-gradient-to-br from-primary-dark rounded-md text-white text-lg tracking-wide font-medium'>
+                       class='w-fit px-4 py-2 active:bg-primary bg-primary-dark ring-1 ring-accent-light rounded-md text-white text-lg tracking-wide font-medium'>
             </Column>
 
         </form>
