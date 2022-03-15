@@ -1,34 +1,23 @@
 <script lang='ts'>
-    import Card from '../lib/components/Card.svelte';
+    import SectionCard from '$lib/home/SectionCard.svelte';
+    import Column from '../lib/components/Column.svelte';
+    import PageTitle from '../lib/components/PageTItle.svelte';
+
+    const sections = [
+        { link: '/workouts', icon: 'healthy-lifestyle-border.png', label: 'TRAININGS' },
+        { link: '/settings', icon: 'settings.png', label: 'SETTINGS' }
+    ];
 </script>
 
-<div class='flex flex-col h-full w-full'>
-    <h1 class='text-white text-3xl font-bold tracking-wide text-center p-8'>Welcome back !</h1>
-    <div class='p-4 grow flex flex-col   items-center'>
-        <br>
-        <div class='grid grid-cols-1 gap-4 max-w-md w-full'>
-            <div>
-                <a href='/workouts'>
-                    <Card
-                        class='flex flex-col items-center space-y-4 p-4 text-center bg-accent-light/25 ring-2 ring-accent-light/75 shadow-lg shadow-primary-dark active:shadow-none'>
-                        <img src='healthy-lifestyle-border.png' alt='workout-logo' class='w-12'>
-                        <p class='text-lg font-medium tracking-wide text-white'>TRAININGS</p>
-                    </Card>
-                </a>
-            </div>
+<Column crossAxisAlignment='center' class='p-4'>
+    <PageTitle title='Welcome back !' class='p-8' />
 
-            <div>
-                <a href=''>
-                    <Card
-                        class='flex flex-col items-center space-y-4 p-4 text-center bg-accent-light/25 ring-2 ring-accent-light/75 shadow-lg shadow-primary-dark active:shadow-none'>
-                        <img src='settings.png' alt='workout-logo' class='w-12'>
-                        <p class='text-lg font-medium tracking-wide text-white'>SETTINGS</p>
-                    </Card>
-                </a>
-            </div>
+    <Column gap='4' crossAxisAlignment='center'>
+        {#each sections as section (section.link)}
+            <SectionCard {...section} />
+        {/each}
+    </Column>
 
-        </div>
-    </div>
-</div>
+</Column>
 
 

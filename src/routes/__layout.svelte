@@ -1,4 +1,4 @@
-<script>
+<script lang='ts'>
     import '../app.css';
     import { onMount } from 'svelte';
     import { userStore } from '../lib/stores';
@@ -18,7 +18,7 @@
 </svelte:head>
 
 
-<div class='h-screen w-screen  bg-gradient-to-br from-primary-dark to-accent-light'>
+<div class='flex h-screen w-screen  bg-gradient-to-br from-primary-dark to-accent-light'>
     {#if authenticated}
         <slot />
     {:else}
