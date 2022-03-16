@@ -9,14 +9,12 @@
     ];
 </script>
 
-<Column crossAxisAlignment='center' class='p-4'>
+<Column crossAxisAlignment='center' width='full' gap='4' class='p-4'>
     <PageTitle title='Welcome back !' class='p-8' />
 
-    <Column gap='4' crossAxisAlignment='center'>
-        {#each sections as section (section.link)}
-            <SectionCard {...section} />
-        {/each}
-    </Column>
+    {#each sections as section (section.link)}
+        <SectionCard {...section} />
+    {/each}
 
 </Column>
 
