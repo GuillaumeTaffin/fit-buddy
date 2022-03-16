@@ -21,11 +21,11 @@
 
 <Column class='p-4'>
 
-    <Column crossAxisAlignment='center' mainAxisAlignment='center' gap='4'>
+    <Column crossAxisAlignment='center' mainAxisAlignment='center' gap='4' width='full'>
         <Logo class='w-52' />
         <PageTitle title='FIT BUDDY' />
         <form on:submit|preventDefault={submitAction} class='w-full max-w-sm'>
-            <Column crossAxisAlignment='center' gap='4'>
+            <Column crossAxisAlignment='center' gap='4' width='full'>
                 <TextField hint='Your e-mail' bind:text={email} />
                 <TextField type='password' hint='Your password' bind:text={password} />
                 <input type='submit' value='{submitButtonText}'
