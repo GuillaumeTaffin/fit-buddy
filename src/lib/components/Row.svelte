@@ -3,14 +3,14 @@
     export let mainAxisAlignment = 'start';
     export let crossAxisAlignment = 'start';
     export let gap = 0;
-    export let width = 'fit';
-    export let height = 'full';
+    export let width = 'full';
+    export let height = 'fit';
 
     let clazz = '';
     export { clazz as class };
 </script>
 
 <div
-    class='flex flex-col justify-{mainAxisAlignment} items-{crossAxisAlignment} space-y-{gap} w-{width} h-{height} {clazz}'>
+    class='flex justify-{mainAxisAlignment} items-{crossAxisAlignment} space-x-{gap} w-{width} h-{height} {clazz}'>
     <slot></slot>
 </div>

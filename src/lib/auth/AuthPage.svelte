@@ -4,6 +4,7 @@
     import Logo from '../components/Logo.svelte';
     import Column from '../components/Column.svelte';
     import PageTitle from '../components/PageTItle.svelte';
+    import Row from '../components/Row.svelte';
 
     let isSignIn = true;
 
@@ -19,7 +20,7 @@
 
 </script>
 
-<Column class='p-4'>
+<Column class='p-4' width='full'>
 
     <Column crossAxisAlignment='center' mainAxisAlignment='center' gap='4' width='full'>
         <Logo class='w-52' />
@@ -37,12 +38,13 @@
     </Column>
 
 
-    <div class='flex space-x-4 items-center justify-center'>
+    <Row gap='4' mainAxisAlignment='center' crossAxisAlignment='center'>
         <p class='text-white/75 text-sm'>{switchLabelText}</p>
         <button on:click={() => isSignIn = !isSignIn}
                 class='hover:italic text-white/75 rounded-lg text-sm'>
             {switchButtonText}
         </button>
-    </div>
+    </Row>
+
 
 </Column>
