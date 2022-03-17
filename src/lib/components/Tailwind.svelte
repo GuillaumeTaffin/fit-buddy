@@ -1,1 +1,1 @@
-<div class='justify-center'></div>
+<div class='justify-center justify-between'></div>
