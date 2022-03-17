@@ -4,6 +4,8 @@
     import Logo from '../components/Logo.svelte';
     import Column from '../components/Column.svelte';
     import PageTitle from '../components/PageTItle.svelte';
+    import Row from '../components/Row.svelte';
+    import Page from '../components/Page.svelte';
 
     let isSignIn = true;
 
@@ -19,9 +21,9 @@
 
 </script>
 
-<Column class='p-4'>
+<Page>
 
-    <Column crossAxisAlignment='center' mainAxisAlignment='center' gap='4'>
+    <Column crossAxisAlignment='center' mainAxisAlignment='center' gap='4' class='h-full'>
         <Logo class='w-52' />
         <PageTitle title='FIT BUDDY' />
         <form on:submit|preventDefault={submitAction} class='w-full max-w-sm'>
@@ -31,18 +33,16 @@
                 <input type='submit' value='{submitButtonText}'
                        class='w-fit px-4 py-2 active:bg-primary bg-primary-dark ring-1 ring-accent-light rounded-md text-white text-lg tracking-wide font-medium'>
             </Column>
-
         </form>
-
     </Column>
 
-
-    <div class='flex space-x-4 items-center justify-center'>
+    <Row gap='4' mainAxisAlignment='center' crossAxisAlignment='center'>
         <p class='text-white/75 text-sm'>{switchLabelText}</p>
         <button on:click={() => isSignIn = !isSignIn}
                 class='hover:italic text-white/75 rounded-lg text-sm'>
             {switchButtonText}
         </button>
-    </div>
+    </Row>
 
-</Column>
+
+</Page>

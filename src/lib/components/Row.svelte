@@ -6,8 +6,10 @@
 
     let clazz = '';
     export { clazz as class };
+
+    $: justify = `justify-${mainAxisAlignment}`;
 </script>
 
-<div class='flex flex-col justify-{mainAxisAlignment} items-{crossAxisAlignment} space-y-{gap} {clazz}'>
+<div class='flex justify-{mainAxisAlignment} items-{crossAxisAlignment} space-x-{gap} {clazz}'>
     <slot></slot>
 </div>
