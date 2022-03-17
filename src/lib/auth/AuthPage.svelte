@@ -5,6 +5,7 @@
     import Column from '../components/Column.svelte';
     import PageTitle from '../components/PageTItle.svelte';
     import Row from '../components/Row.svelte';
+    import Page from '../components/Page.svelte';
 
     let isSignIn = true;
 
@@ -20,23 +21,20 @@
 
 </script>
 
-<Column class='p-4' width='full'>
+<Page>
 
-    <Column crossAxisAlignment='center' mainAxisAlignment='center' gap='4' width='full'>
+    <Column crossAxisAlignment='center' mainAxisAlignment='center' gap='4' class='h-full'>
         <Logo class='w-52' />
         <PageTitle title='FIT BUDDY' />
         <form on:submit|preventDefault={submitAction} class='w-full max-w-sm'>
-            <Column crossAxisAlignment='center' gap='4' width='full'>
+            <Column crossAxisAlignment='center' gap='4'>
                 <TextField hint='Your e-mail' bind:text={email} />
                 <TextField type='password' hint='Your password' bind:text={password} />
                 <input type='submit' value='{submitButtonText}'
                        class='w-fit px-4 py-2 active:bg-primary bg-primary-dark ring-1 ring-accent-light rounded-md text-white text-lg tracking-wide font-medium'>
             </Column>
-
         </form>
-
     </Column>
-
 
     <Row gap='4' mainAxisAlignment='center' crossAxisAlignment='center'>
         <p class='text-white/75 text-sm'>{switchLabelText}</p>
@@ -47,4 +45,4 @@
     </Row>
 
 
-</Column>
+</Page>
