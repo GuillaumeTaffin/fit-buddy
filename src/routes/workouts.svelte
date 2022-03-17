@@ -17,7 +17,12 @@
 <Page>
 
     <Column crossAxisAlignment='center' class='grow w-full p-4'>
-        <PageTitle title='WORKOUTS' class='pb-12' />
+        <Row gap='8' class='h-fit pb-8 p-4 w-full' crossAxisAlignment='center'>
+            <img src='back.png' alt='arrow'
+                 class='w-5 h-5 fill-white bg-white rounded-full p-1 ring ringprimary outline outline-white outline-offset-2 active:bg-white/50'>
+
+            <PageTitle title='WORKOUTS' />
+        </Row>
         {#each workouts as workout (workout.id)}
             <Card class='px-4 py-2 w-full max-w-md'>
                 <Column crossAxisAlignment='start'>
@@ -29,9 +34,9 @@
         {/each}
     </Column>
 
-    <Row mainAxisAlignment='center' class='bg-white/90 ring-2 ring-primary-dark/50 p-2'>
+    <Row mainAxisAlignment='center' crossAxisAlignment='center' class='p-4'>
         <button
-            class='rounded-xl bg-primary active:bg-primary-dark py-2 px-4'>
+            class='rounded-full outline outline-white outline-offset-2 text-primary font-medium tracking-wider ring ring-accent-light bg-white active:bg-white/50 py-2 px-4'>
             NEW WORKOUT
         </button>
     </Row>

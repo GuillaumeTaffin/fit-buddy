@@ -21,7 +21,7 @@
 
 </script>
 
-<Page>
+<Page class='p-4'>
 
     <Column crossAxisAlignment='center' mainAxisAlignment='center' gap='4' class='h-full'>
         <Logo class='w-52' />
@@ -31,8 +31,9 @@
                 <TextField hint='Your e-mail' bind:text={email} />
                 <TextField type='password' hint='Your password' bind:text={password} />
                 <input type='submit' value='{submitButtonText}'
-                       class='w-fit px-4 py-2 active:bg-primary bg-primary-dark ring-1 ring-accent-light rounded-md text-white text-lg tracking-wide font-medium'>
+                       class='rounded-lg outline outline-white outline-offset-2 text-primary font-medium tracking-wider ring ring-accent-light bg-white active:bg-white/50 py-1 px-2'>
             </Column>
+
         </form>
     </Column>
 

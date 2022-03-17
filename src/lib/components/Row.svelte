@@ -2,7 +2,7 @@
 <script lang='ts'>
     export let mainAxisAlignment = 'start';
     export let crossAxisAlignment = 'start';
-    export let gap = 0;
+    export let gap = '0';
 
     let clazz = '';
     export { clazz as class };

@@ -5,8 +5,8 @@ module.exports = {
         colors: {
             'primary-light': '#FFAB91',
             'primary': '#FF5722',
-            'primary-dark': '#BF360C',
-            'accent-light': '#FFA000',
+            'primary-dark': '#283593',
+            'accent-light': '#FF7043',
             'white': '#FAFAFA',
             'gray': '#64748b',
             'black': '#334155'
