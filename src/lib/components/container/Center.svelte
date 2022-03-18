@@ -1,9 +1,9 @@
 <!--suppress ReservedWordAsName -->
-<script>
+<script lang='ts'>
     let clazz = '';
     export { clazz as class };
 </script>
 
-<div class='w-screen h-screen flex flex-col justify-items-stretch {clazz}'>
-    <slot></slot>
+<div class='grid place-items-center {clazz}'>
+    <slot />
 </div>

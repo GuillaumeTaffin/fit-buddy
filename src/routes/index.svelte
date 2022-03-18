@@ -1,10 +1,11 @@
 <script lang='ts'>
     import SectionCard from '$lib/home/SectionCard.svelte';
     import Column from '../lib/components/Column.svelte';
-    import PageTitle from '../lib/components/PageTItle.svelte';
-    import Page from '../lib/components/Page.svelte';
+    import PageTitle from '../lib/components/PageTitle.svelte';
+    import Page from '../lib/components/page/Page.svelte';
 
     const sections = [
+        { link: '/', icon: 'home.png', label: 'HOME' },
         { link: '/workouts', icon: 'healthy-lifestyle-border.png', label: 'TRAININGS' },
         { link: '/settings', icon: 'settings.png', label: 'SETTINGS' }
     ];

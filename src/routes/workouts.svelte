@@ -1,11 +1,11 @@
 <script lang='ts'>
     import { workoutsStore } from '$lib/stores';
     import { onMount } from 'svelte';
-    import Page from '../lib/components/Page.svelte';
-    import PageTitle from '../lib/components/PageTItle.svelte';
+    import Page from '../lib/components/page/Page.svelte';
     import Column from '../lib/components/Column.svelte';
-    import Card from '../lib/components/Card.svelte';
-    import Row from '../lib/components/Row.svelte';
+    import WorkoutCard from '../lib/workouts/pages/WorkoutCard.svelte';
+    import OutlinedButton from '../lib/components/button/OutlinedButton.svelte';
+    import Center from '../lib/components/container/Center.svelte';
 
     onMount(() => {
         workoutsStore.getAllWorkouts();
@@ -15,32 +15,16 @@
 
 </script>
 
-<Page>
-
+<Page title='trainings'>
     <Column crossAxisAlignment='center' class='grow w-full p-4'>
-        <Row gap='8' class='h-fit pb-8 p-4 w-full' crossAxisAlignment='center'>
-            <img style='cursor: pointer' on:click={() => window.history.back()} src='back.png' alt='arrow'
-                 class='w-5 h-5 fill-white bg-white rounded-full p-1 ring ring-white/50 outline outline-white outline-offset-2 active:bg-white/50'>
-
-            <PageTitle title='WORKOUTS' />
-        </Row>
         {#each workouts as workout (workout.id)}
-            <Card class='px-4 py-2 w-full max-w-md'>
-                <Column crossAxisAlignment='start'>
-                    <p class='text-xl font-medium tracking-wide'>{workout.title}</p>
-                    <p class='text-sm font-medium text-white/75'>{workout.trainingAt.toLocaleString()}</p>
-                </Column>
-
-            </Card>
+            <WorkoutCard {workout} />
         {/each}
     </Column>
 
-    <Row mainAxisAlignment='center' crossAxisAlignment='center' class='p-4'>
-        <button
-            class='rounded-full outline outline-white outline-offset-2 text-primary font-medium tracking-wider ring ring-white/0 bg-white active:bg-white/50 py-2 px-4'>
-            NEW WORKOUT
-        </button>
-    </Row>
+    <Center class='p-4'>
+        <OutlinedButton text='new workout' />
+    </Center>
 
 
 </Page>

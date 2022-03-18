@@ -3,9 +3,9 @@
     import TextField from '../components/TextField.svelte';
     import Logo from '../components/Logo.svelte';
     import Column from '../components/Column.svelte';
-    import PageTitle from '../components/PageTItle.svelte';
+    import PageTitle from '../components/PageTitle.svelte';
     import Row from '../components/Row.svelte';
-    import Page from '../components/Page.svelte';
+    import Page from '../components/page/Page.svelte';
 
     let isSignIn = true;
 
