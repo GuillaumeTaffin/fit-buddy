@@ -12,14 +12,15 @@
     });
 
     $: workouts = $workoutsStore;
+
 </script>
 
 <Page>
 
     <Column crossAxisAlignment='center' class='grow w-full p-4'>
         <Row gap='8' class='h-fit pb-8 p-4 w-full' crossAxisAlignment='center'>
-            <img src='back.png' alt='arrow'
-                 class='w-5 h-5 fill-white bg-white rounded-full p-1 ring ringprimary outline outline-white outline-offset-2 active:bg-white/50'>
+            <img style='cursor: pointer' on:click={() => window.history.back()} src='back.png' alt='arrow'
+                 class='w-5 h-5 fill-white bg-white rounded-full p-1 ring ring-white/50 outline outline-white outline-offset-2 active:bg-white/50'>
 
             <PageTitle title='WORKOUTS' />
         </Row>
@@ -36,7 +37,7 @@
 
     <Row mainAxisAlignment='center' crossAxisAlignment='center' class='p-4'>
         <button
-            class='rounded-full outline outline-white outline-offset-2 text-primary font-medium tracking-wider ring ring-accent-light bg-white active:bg-white/50 py-2 px-4'>
+            class='rounded-full outline outline-white outline-offset-2 text-primary font-medium tracking-wider ring ring-white/0 bg-white active:bg-white/50 py-2 px-4'>
             NEW WORKOUT
         </button>
     </Row>
