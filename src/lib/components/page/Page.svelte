@@ -13,7 +13,9 @@
 </script>
 
 
-<div class='w-screen h-screen flex {colDirection} justify-items-stretch {clazz}'>
+<div class='w-screen h-screen p-4 flex {colDirection} justify-items-stretch {clazz}'>
     <AppBar {title} />
-    <slot></slot>
+    <div class='flex flex-col w-full grow'>
+        <slot></slot>
+    </div>
 </div>

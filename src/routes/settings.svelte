@@ -1,1 +1,5 @@
-<h1>SETTINGS</h1>
+<script>
+    import Page from '../lib/components/page/Page.svelte';
+</script>
+
+<Page title='settings' />

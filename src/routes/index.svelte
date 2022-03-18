@@ -11,7 +11,7 @@
     ];
 </script>
 
-<Page class='p-4'>
+<Page title='home'>
     <Column crossAxisAlignment='center' gap='4'>
         <PageTitle title='Welcome back !' class='p-8' />
 

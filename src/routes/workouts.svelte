@@ -16,13 +16,13 @@
 </script>
 
 <Page title='trainings'>
-    <Column crossAxisAlignment='center' class='grow w-full p-4'>
+    <Column crossAxisAlignment='center' class='grow w-full py-4'>
         {#each workouts as workout (workout.id)}
             <WorkoutCard {workout} />
         {/each}
     </Column>
 
-    <Center class='p-4'>
+    <Center class='p-2'>
         <OutlinedButton text='new workout' />
     </Center>
 
