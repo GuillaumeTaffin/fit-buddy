@@ -44,7 +44,7 @@
 
 {#if visible}
     <div transition:slide|local='{{duration: 300}}' use:clickOutside on:outclick={toggleDrawer}
-         class='overflow-clip absolute top-0 right-0 w-64 h-full bg-gradient-to-bl from-primary-dark  ring ring-primary-dark/50 text-black'>
+         class='overflow-clip fixed top-0 right-0 w-64 h-full bg-gradient-to-bl from-primary-dark text-black'>
         <Column mainAxisAlignment='end' class='pt-16'>
             <Column crossAxisAlignment='center' gap='8' class='p-4'>
 
