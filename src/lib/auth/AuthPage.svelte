@@ -6,6 +6,7 @@
     import PageTitle from '../components/PageTitle.svelte';
     import Row from '../components/Row.svelte';
     import Page from '../components/page/Page.svelte';
+    import ElevatedButton from '../components/button/ElevatedButton.svelte';
 
     let isSignIn = true;
 
@@ -21,7 +22,7 @@
 
 </script>
 
-<Page class='p-4'>
+<Page class='p-4' title={submitButtonText}>
 
     <Column crossAxisAlignment='center' mainAxisAlignment='center' gap='4' class='h-full'>
         <Logo class='w-52' />
@@ -30,8 +31,9 @@
             <Column crossAxisAlignment='center' gap='4'>
                 <TextField hint='Your e-mail' bind:text={email} />
                 <TextField type='password' hint='Your password' bind:text={password} />
-                <input type='submit' value='{submitButtonText}'
-                       class='rounded-lg outline outline-white outline-offset-2 text-primary font-medium tracking-wider ring ring-accent-light bg-white active:bg-white/50 py-1 px-2'>
+                <ElevatedButton>
+                    LET'S GO !
+                </ElevatedButton>
             </Column>
 
         </form>

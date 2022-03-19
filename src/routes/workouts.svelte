@@ -4,8 +4,8 @@
     import Page from '../lib/components/page/Page.svelte';
     import Column from '../lib/components/Column.svelte';
     import WorkoutCard from '../lib/workouts/pages/WorkoutCard.svelte';
-    import OutlinedButton from '../lib/components/button/OutlinedButton.svelte';
     import Center from '../lib/components/container/Center.svelte';
+    import ElevatedButton from '../lib/components/button/ElevatedButton.svelte';
 
     onMount(() => {
         workoutsStore.getAllWorkouts();
@@ -23,7 +23,9 @@
     </Column>
 
     <Center class='p-2'>
-        <OutlinedButton text='new workout' />
+        <ElevatedButton>
+            NEW TRAINING
+        </ElevatedButton>
     </Center>
 
 

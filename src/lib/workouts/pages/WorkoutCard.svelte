@@ -7,9 +7,9 @@
 
 </script>
 
-<Card class='px-4 py-2 w-full max-w-md'>
+<Card class='px-4 py-2 w-full max-w-md bg-white/75'>
     <Column crossAxisAlignment='start'>
-        <p class='text-xl font-medium tracking-wide'>{workout.title}</p>
-        <p class='text-sm font-medium text-white/75'>{workout.trainingAt.toLocaleString()}</p>
+        <p class='text-xl font-semibold text-black tracking-wide'>{workout.title}</p>
+        <p class='text-sm font-medium text-black/75'>{workout.trainingAt.toLocaleString()}</p>
     </Column>
 </Card>

@@ -7,13 +7,14 @@
     const sections = [
         { link: '/', icon: 'home.png', label: 'HOME' },
         { link: '/workouts', icon: 'healthy-lifestyle-border.png', label: 'TRAININGS' },
+        { link: '/auth', icon: 'unlocked.png', label: 'SIGN IN' },
         { link: '/settings', icon: 'settings.png', label: 'SETTINGS' }
     ];
 </script>
 
 <Page title='home'>
     <Column crossAxisAlignment='center' gap='4'>
-        <PageTitle title='Welcome back !' class='p-8' />
+        <PageTitle title='Welcome to Fit Buddy !' class='p-8' />
 
         {#each sections as section (section.link)}
             <SectionCard {...section} />

@@ -1,14 +1,6 @@
 <script lang='ts'>
     import '../app.css';
-    import { onMount } from 'svelte';
-    import { mediaStore, userStore } from '../lib/stores';
-    import AuthPage from '../lib/auth/AuthPage.svelte';
-
-    onMount(async () => {
-        await userStore.getCurrentUser();
-    });
-
-    $: authenticated = $userStore.authenticated;
+    import { mediaStore } from '../lib/stores';
 
     let windowWidth = 0;
     $: mediaStore.setWindowWidth(windowWidth);
@@ -21,10 +13,6 @@
 
 <svelte:window bind:innerWidth={windowWidth} />
 
-<div class='flex h-screen w-screen  bg-gradient-to-br from-primary-dark to-accent-light'>
-    {#if authenticated}
-        <slot />
-    {:else}
-        <AuthPage />
-    {/if}
+<div class='flex h-screen w-screen  bg-gradient-to-br from-primary-dark to-primary-light'>
+    <slot />
 </div>

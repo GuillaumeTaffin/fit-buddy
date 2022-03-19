@@ -8,10 +8,10 @@
 
 </script>
 
-<a href={link} class='max-w-md w-full'>
+<a href={link} class='max-w-xs w-full'>
     <Card
-        class='flex flex-col items-center space-y-4 p-4 text-center active:shadow-none'>
+        class='flex flex-col items-center space-y-4 p-4 text-center active:shadow-none bg-gradient-to-br from-primary to-primary/50'>
         <img src={icon} alt='logo' class='w-12'>
-        <p class='text-lg font-medium tracking-wide text-white'>{label}</p>
+        <p class='text-lg font-semibold tracking-widest text-white'>{label}</p>
     </Card>
 </a>
