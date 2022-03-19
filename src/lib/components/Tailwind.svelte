@@ -7,5 +7,6 @@ space-x-8
 space-x-4
 space-x-3
 space-x-2
+space-y-8
 flex-col-reverse
 '></div>

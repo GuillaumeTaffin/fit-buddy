@@ -4,11 +4,12 @@
     import Center from '../container/Center.svelte';
     import ChevronLeft from 'svelte-material-icons/ChevronLeft.svelte';
     import ChevronRight from 'svelte-material-icons/ChevronRight.svelte';
-    import Backburger from 'svelte-material-icons/Backburger.svelte';
     import { mediaStore } from '../../stores';
     import { MediaState } from '../../media/media-store';
+    import DrawerIcon from '../navigation/DrawerIcon.svelte';
 
     export let title = '';
+    export let onClickDrawerIcon;
 
     $: roundedCorner = $mediaStore === MediaState.MOBILE ? 'rounded-tl-3xl' : 'rounded-bl-3xl';
 </script>
@@ -21,7 +22,5 @@
     <Center class='grow'>
         <PageTitle {title} />
     </Center>
-    <Row class='w-16' mainAxisAlignment='end'>
-        <Backburger color='white' size='2em' />
-    </Row>
+    <DrawerIcon on:click={onClickDrawerIcon} />
 </Row>
