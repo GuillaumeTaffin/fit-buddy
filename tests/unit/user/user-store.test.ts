@@ -1,7 +1,7 @@
 /* eslint-disable */
 import { UserStore } from '../../../src/lib/user/user-store';
-import { User } from '../../../src/lib/user/user';
-import type { AuthRepository } from '../../../src/lib/auth/auth-repository';
+import type { User } from '../../../src/lib/user/user';
+import { FakeAuthRepository } from '../common/fake-auth-repository';
 
 test('Current user undefined', async () => {
     const store = new UserStore(new FakeAuthRepository(false));
@@ -50,24 +50,3 @@ test('Sign up not successful', async () => {
     await store.signUp('email', 'password');
     expect(user!.authenticated).not.toBeTruthy();
 });
-
-class FakeAuthRepository implements AuthRepository {
-    private readonly user;
-
-    constructor(authSuccessful: boolean) {
-        this.user = authSuccessful ? User.authenticated() : User.undefined();
-    }
-
-    async getCurrentUser(): Promise<User> {
-        return Promise.resolve(this.user);
-    }
-
-    signIn(email: string, password: string): Promise<User> {
-        return Promise.resolve(this.user);
-    }
-
-    signUp(email: string, password: string): Promise<User> {
-        return Promise.resolve(this.user);
-    }
-
-}

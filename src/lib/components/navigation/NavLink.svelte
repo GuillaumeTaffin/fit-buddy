@@ -8,6 +8,6 @@
 <a href={item.link} class='max-w-xs w-full'>
     <Row crossAxisAlignment='center' gap='4' class=''>
         <img src={item.icon} alt='logo' class='w-12'>
-        <p class='text-lg font-semibold tracking-widest text-white'>{item.label}</p>
+        <p class='text-lg font-semibold tracking-widest text-white'>{item.label.toUpperCase()}</p>
     </Row>
 </a>

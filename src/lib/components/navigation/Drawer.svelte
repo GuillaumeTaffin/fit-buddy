@@ -2,19 +2,11 @@
     import Column from '../Column.svelte';
     import { cubicOut } from 'svelte/easing';
     import NavLink from './NavLink.svelte';
-    import type { NavItem } from './nav-item';
-    import { mediaStore } from '../../stores';
+    import { mediaStore, routesStore } from '../../stores';
     import { MediaState } from '../../media/media-store';
 
     export let visible = false;
     export let toggleDrawer;
-
-    const sections: NavItem[] = [
-        { link: '/', icon: 'home.png', label: 'HOME' },
-        { link: '/workouts', icon: 'healthy-lifestyle-border.png', label: 'TRAININGS' },
-        { link: '/auth', icon: 'unlocked.png', label: 'SIGN IN' },
-        { link: '/settings', icon: 'settings.png', label: 'SETTINGS' }
-    ];
 
     function clickOutside(node) {
         const handleClick = (event) => {
@@ -52,7 +44,7 @@
          class='overflow-clip fixed top-0 right-0 w-64 h-full bg-gradient-to-bl from-primary-dark text-black'>
         <Column mainAxisAlignment={linkPosition} crossAxisAlignment='center' gap='8' class='px-4 py-16 h-full'>
 
-            {#each sections as section (section.link)}
+            {#each $routesStore as section (section.link)}
                 <NavLink item={section} />
             {/each}
 
