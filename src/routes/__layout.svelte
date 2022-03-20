@@ -1,6 +1,11 @@
 <script lang='ts'>
     import '../app.css';
-    import { mediaStore } from '../lib/stores';
+    import { mediaStore, userStore } from '../lib/stores';
+    import { onMount } from 'svelte';
+
+    onMount(() => {
+        userStore.getCurrentUser();
+    });
 
     let windowWidth = 0;
     $: mediaStore.setWindowWidth(windowWidth);
