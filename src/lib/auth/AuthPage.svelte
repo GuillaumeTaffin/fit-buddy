@@ -7,6 +7,7 @@
     import Row from '../components/Row.svelte';
     import Page from '../components/page/Page.svelte';
     import ElevatedButton from '../components/button/ElevatedButton.svelte';
+    import { goto } from '$app/navigation';
 
     let isSignIn = true;
 
@@ -20,6 +21,7 @@
     $: switchButtonText = submitActionText(!isSignIn);
     $: switchLabelText = isSignIn ? 'Not member already ?' : 'Already member ?';
 
+    $: $userStore.authenticated ? goto('/') : '';
 </script>
 
 <Page class='p-4' title={submitButtonText}>

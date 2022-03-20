@@ -1,12 +1,15 @@
-<script>
+<script lang='ts'>
     import Column from '../Column.svelte';
     import { cubicOut } from 'svelte/easing';
-    import Row from '../Row.svelte';
+    import NavLink from './NavLink.svelte';
+    import type { NavItem } from './nav-item';
+    import { mediaStore } from '../../stores';
+    import { MediaState } from '../../media/media-store';
 
     export let visible = false;
     export let toggleDrawer;
 
-    const sections = [
+    const sections: NavItem[] = [
         { link: '/', icon: 'home.png', label: 'HOME' },
         { link: '/workouts', icon: 'healthy-lifestyle-border.png', label: 'TRAININGS' },
         { link: '/auth', icon: 'unlocked.png', label: 'SIGN IN' },
@@ -40,24 +43,19 @@
             }
         };
     }
+
+    $: linkPosition = $mediaStore === MediaState.MOBILE ? 'end' : 'start';
 </script>
 
 {#if visible}
     <div transition:slide|local='{{duration: 300}}' use:clickOutside on:outclick={toggleDrawer}
          class='overflow-clip fixed top-0 right-0 w-64 h-full bg-gradient-to-bl from-primary-dark text-black'>
-        <Column mainAxisAlignment='end' class='pt-16'>
-            <Column crossAxisAlignment='center' gap='8' class='p-4'>
+        <Column mainAxisAlignment={linkPosition} crossAxisAlignment='center' gap='8' class='px-4 py-16 h-full'>
 
-                {#each sections as section (section.link)}
-                    <a href={section.link} class='max-w-xs w-full'>
-                        <Row crossAxisAlignment='center' gap='4' class=''>
-                            <img src={section.icon} alt='logo' class='w-12'>
-                            <p class='text-lg font-semibold tracking-widest text-white'>{section.label}</p>
-                        </Row>
-                    </a>
-                {/each}
+            {#each sections as section (section.link)}
+                <NavLink item={section} />
+            {/each}
 
-            </Column>
         </Column>
     </div>
 {/if}
