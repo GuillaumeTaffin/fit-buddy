@@ -23,4 +23,17 @@ export class WorkoutsStore {
         this.state.set(workouts);
     }
 
+    async save(title: string) {
+        const success = await this.repository.save(title);
+        if (success) {
+            await this.getAllWorkouts();
+        }
+    }
+
+    async delete(id: bigint) {
+        const success = await this.repository.delete(id);
+        if (success) {
+            await this.getAllWorkouts();
+        }
+    }
 }

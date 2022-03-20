@@ -24,4 +24,12 @@ export class WorkoutsRepository {
             ))
         ));
     }
+
+    async save(title: string): Promise<boolean> {
+        return await this.dataSource.save(title);
+    }
+
+    async delete(id: bigint): Promise<boolean> {
+        return await this.dataSource.delete(id);
+    }
 }

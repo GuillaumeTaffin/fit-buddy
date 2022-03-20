@@ -4,25 +4,10 @@
     import NavLink from './NavLink.svelte';
     import { mediaStore, routesStore } from '../../stores';
     import { MediaState } from '../../media/media-store';
+    import { clickOutside } from '../modal/modal.ts';
 
     export let visible = false;
     export let toggleDrawer;
-
-    function clickOutside(node) {
-        const handleClick = (event) => {
-            if (!node.contains(event.target)) {
-                node.dispatchEvent(new CustomEvent('outclick'));
-            }
-        };
-
-        document.addEventListener('click', handleClick, true);
-
-        return {
-            destroy() {
-                document.removeEventListener('click', handleClick, true);
-            }
-        };
-    }
 
     function slide(node, { duration }) {
         return {

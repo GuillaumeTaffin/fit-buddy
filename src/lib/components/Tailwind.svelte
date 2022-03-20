@@ -8,5 +8,8 @@ space-x-4
 space-x-3
 space-x-2
 space-y-8
+space-y-2
 flex-col-reverse
+shadow-lg
+shadow-none
 '></div>
