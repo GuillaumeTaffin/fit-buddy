@@ -18,9 +18,9 @@
 </script>
 
 
-<div class='w-screen h-screen p-4 flex {colDirection} justify-items-stretch {clazz}'>
+<div class='w-screen h-screen max-h-screen p-4 flex {colDirection} justify-items-stretch {clazz}'>
     <AppBar {title} onClickDrawerIcon={toggleDrawer} />
-    <div class='flex flex-col w-full grow'>
+    <div class='flex flex-col w-full grow overflow-y-clip'>
         <slot></slot>
     </div>
     <Drawer visible={showDrawer} {toggleDrawer} />

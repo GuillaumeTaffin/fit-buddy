@@ -21,7 +21,7 @@ export class WorkoutsStore implements Readable<WorkoutsEvent> {
 
     async getAllWorkouts() {
         const workouts = await this.repository.getAllWorkouts();
-        this.state.update(() => new AllWorkoutsEvent(workouts));
+        this.state.set(new AllWorkoutsEvent(workouts));
     }
 
     async save(title: string) {

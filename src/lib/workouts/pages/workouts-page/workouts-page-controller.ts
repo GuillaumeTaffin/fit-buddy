@@ -16,7 +16,7 @@ export class WorkoutsPageController implements Readable<WorkoutsPageState> {
 
     private handleWorkoutsEvents(workoutsEvent: WorkoutsEvent) {
         if (workoutsEvent instanceof AllWorkoutsEvent) {
-            this.state.set(new WorkoutsPageState(workoutsEvent.workouts, false));
+            this.state.update((old) => new WorkoutsPageState(workoutsEvent.workouts, old.showNewTrainingDialog));
         }
     }
 
@@ -29,6 +29,7 @@ export class WorkoutsPageController implements Readable<WorkoutsPageState> {
     }
 
     async createWorkout(title: string) {
+        await this.closeNewTrainingDialog();
         await this.workoutsStore.save(title);
     }
 

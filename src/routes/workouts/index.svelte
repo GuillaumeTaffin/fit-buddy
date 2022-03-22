@@ -15,17 +15,19 @@
     let controller = new WorkoutsPageController(workoutsStore);
     let newTrainingTitle;
 
-    $: showModal = $controller.showNewTrainingDialog;
-
     onMount(() => {
         controller.getAllWorkouts();
     });
 
+    $: showModal = $controller.showNewTrainingDialog;
+    $: workouts = $controller.workouts;
+
 </script>
 
 <Page title='trainings'>
-    <Column crossAxisAlignment='center' gap='2' class='grow w-full py-4'>
-        {#each $controller.workouts as workout (workout.id)}
+
+    <Column crossAxisAlignment='center' gap='2' class='grow w-full py-4 overflow-y-scroll'>
+        {#each workouts as workout (workout.id)}
             <WorkoutCard {workout} />
         {/each}
     </Column>
@@ -36,7 +38,7 @@
         </ElevatedButton>
     </Center>
 
-    <Modal showModal={$controller.showNewTrainingDialog} on:outclick={() => controller.closeNewTrainingDialog()}>
+    <Modal {showModal} on:outclick={() => controller.closeNewTrainingDialog()}>
         <Card shadow='none' class='bg-white p-4'>
             <Column gap='4' crossAxisAlignment='center'>
                 <h1 class='text-black font-semibold tracking-wide'>NEW TRAINING</h1>
