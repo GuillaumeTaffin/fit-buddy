@@ -1,6 +1,6 @@
 import { UserStore } from './user/user-store';
 import { WorkoutsStore } from './workouts/workouts-store';
-import { SupabaseWorkoutsDataSource } from './workouts/supabase-workouts-data-source';
+import { SupabaseWorkoutsDataSource } from './workouts/data-sources/supabase-workouts-data-source';
 import { MediaStore } from './media/media-store';
 import { RoutesStore } from './routes/routes-store';
 

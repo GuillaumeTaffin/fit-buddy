@@ -6,6 +6,6 @@
     export let shadow = 'lg';
 </script>
 
-<div class='rounded-xl shadow-{shadow} shadow-primary-dark {clazz}'>
+<div on:click class='rounded-xl shadow-{shadow} shadow-primary-dark {clazz}'>
     <slot />
 </div>

@@ -1,4 +1,4 @@
-import type { WorkoutsDataSource } from './workouts-data-source';
+import type { WorkoutsDataSource } from './data-sources/workouts-data-source';
 import { WorkoutsRepository } from './workouts-repository';
 import type { Subscriber, Unsubscriber } from 'svelte/types/runtime/store';
 import type { Workout } from './workout';

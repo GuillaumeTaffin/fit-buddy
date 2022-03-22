@@ -1,15 +1,15 @@
 <script lang='ts'>
-    import { workoutsStore } from '$lib/stores';
+    import { workoutsStore } from '../../lib/stores';
     import { onMount } from 'svelte';
-    import Page from '../lib/components/page/Page.svelte';
-    import Column from '../lib/components/Column.svelte';
-    import WorkoutCard from '../lib/workouts/pages/WorkoutCard.svelte';
-    import Center from '../lib/components/container/Center.svelte';
-    import ElevatedButton from '../lib/components/button/ElevatedButton.svelte';
-    import Modal from '../lib/components/modal/Modal.svelte';
-    import Card from '../lib/components/Card.svelte';
-    import TextField from '../lib/components/TextField.svelte';
-    import TextButton from '../lib/components/button/TextButton.svelte';
+    import Page from '../../lib/components/page/Page.svelte';
+    import Column from '../../lib/components/Column.svelte';
+    import WorkoutCard from '../../lib/workouts/pages/WorkoutCard.svelte';
+    import Center from '../../lib/components/container/Center.svelte';
+    import ElevatedButton from '../../lib/components/button/ElevatedButton.svelte';
+    import Modal from '../../lib/components/modal/Modal.svelte';
+    import Card from '../../lib/components/Card.svelte';
+    import TextField from '../../lib/components/TextField.svelte';
+    import TextButton from '../../lib/components/button/TextButton.svelte';
 
     onMount(() => {
         workoutsStore.getAllWorkouts();

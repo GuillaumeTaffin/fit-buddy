@@ -1,4 +1,4 @@
-import { client } from '../supabase/supabase-client';
+import { client } from '../../supabase/supabase-client';
 import type { WorkoutDao } from './workout-dao';
 import type { WorkoutsDataSource } from './workouts-data-source';
 

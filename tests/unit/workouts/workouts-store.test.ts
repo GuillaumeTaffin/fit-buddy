@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { WorkoutsStore } from '../../../src/lib/workouts/workouts-store';
-import type { WorkoutsDataSource } from '../../../src/lib/workouts/workouts-data-source';
-import type { WorkoutDao } from '../../../src/lib/workouts/workout-dao';
+import type { WorkoutsDataSource } from '../../../src/lib/workouts/data-sources/workouts-data-source';
+import type { WorkoutDao } from '../../../src/lib/workouts/data-sources/workout-dao';
 import { Exercise, Set, Workout } from '../../../src/lib/workouts/workout';
 
 test('Get all workouts', async () => {

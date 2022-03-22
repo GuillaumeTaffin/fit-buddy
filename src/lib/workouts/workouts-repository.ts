@@ -1,5 +1,5 @@
 import { Exercise, Set, Workout } from './workout';
-import type { WorkoutsDataSource } from './workouts-data-source';
+import type { WorkoutsDataSource } from './data-sources/workouts-data-source';
 
 export class WorkoutsRepository {
     constructor(private readonly dataSource: WorkoutsDataSource) {
