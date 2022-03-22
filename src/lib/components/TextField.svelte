@@ -3,7 +3,7 @@
     export let hint = '';
     export let type = 'text';
 
-    export let text: string;
+    export let text = '';
 
     let input;
 

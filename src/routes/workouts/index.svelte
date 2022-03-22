@@ -13,19 +13,14 @@
     import { WorkoutsPageController } from '../../lib/workouts/pages/workouts-page/workouts-page-controller';
 
     let controller = new WorkoutsPageController(workoutsStore);
-
-    onMount(() => {
-        workoutsStore.getAllWorkouts();
-    });
-
-
-    let showModal = false;
     let newTrainingTitle;
 
-    const onNewTraining = async () => {
-        await workoutsStore.save(newTrainingTitle);
-        showModal = false;
-    };
+    $: showModal = $controller.showNewTrainingDialog;
+
+    onMount(() => {
+        controller.getAllWorkouts();
+    });
+
 </script>
 
 <Page title='trainings'>
@@ -36,12 +31,12 @@
     </Column>
 
     <Center class='p-2'>
-        <ElevatedButton on:click={() => showModal = true}>
+        <ElevatedButton on:click={() => controller.openNewTrainingDialog()}>
             NEW TRAINING
         </ElevatedButton>
     </Center>
 
-    <Modal bind:showModal={showModal}>
+    <Modal showModal={$controller.showNewTrainingDialog} on:outclick={() => controller.closeNewTrainingDialog()}>
         <Card shadow='none' class='bg-white p-4'>
             <Column gap='4' crossAxisAlignment='center'>
                 <h1 class='text-black font-semibold tracking-wide'>NEW TRAINING</h1>
@@ -50,7 +45,7 @@
                            class='border border-primary-dark'
                            bind:text={newTrainingTitle}
                 />
-                <TextButton on:click={onNewTraining}>CREATE</TextButton>
+                <TextButton on:click={() => controller.createWorkout(newTrainingTitle)}>CREATE</TextButton>
             </Column>
         </Card>
     </Modal>
