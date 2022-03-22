@@ -14,7 +14,7 @@
     $: roundedCorner = $mediaStore === MediaState.MOBILE ? 'rounded-tl-3xl' : 'rounded-bl-3xl';
 </script>
 
-<Row class='h-fit pt-4 w-full  {roundedCorner}' crossAxisAlignment='center'>
+<Row class='h-fit py-4 px-2 w-full  {roundedCorner}' crossAxisAlignment='center'>
     <Row class='w-16' mainAxisAlignment='start'>
         <span on:click={() => window.history.back()}><ChevronLeft color='white' size='2em' /></span>
         <span on:click={() => window.history.forward()}><ChevronRight color='white' size='2em' /></span>

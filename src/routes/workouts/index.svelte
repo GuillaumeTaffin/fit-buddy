@@ -5,7 +5,6 @@
     import Column from '../../lib/components/Column.svelte';
     import WorkoutCard from '../../lib/workouts/pages/WorkoutCard.svelte';
     import Center from '../../lib/components/container/Center.svelte';
-    import ElevatedButton from '../../lib/components/button/ElevatedButton.svelte';
     import Modal from '../../lib/components/modal/Modal.svelte';
     import Card from '../../lib/components/Card.svelte';
     import TextField from '../../lib/components/TextField.svelte';
@@ -26,16 +25,16 @@
 
 <Page title='trainings'>
 
-    <Column crossAxisAlignment='center' gap='2' class='grow w-full py-4 overflow-y-scroll'>
+    <Column crossAxisAlignment='center' gap='2' class='grow w-full p-4 overflow-y-scroll'>
         {#each workouts as workout (workout.id)}
             <WorkoutCard {workout} />
         {/each}
     </Column>
 
     <Center class='p-2'>
-        <ElevatedButton on:click={() => controller.openNewTrainingDialog()}>
+        <TextButton on:click={() => controller.openNewTrainingDialog()}>
             NEW TRAINING
-        </ElevatedButton>
+        </TextButton>
     </Center>
 
     <Modal {showModal} on:outclick={() => controller.closeNewTrainingDialog()}>
