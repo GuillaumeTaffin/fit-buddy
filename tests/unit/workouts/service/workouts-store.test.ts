@@ -3,15 +3,13 @@ import { WorkoutsStore } from '../../../../src/lib/workouts/service/workouts-sto
 import type { WorkoutsDataSource } from '../../../../src/lib/workouts/data-sources/workouts-data-source';
 import type { WorkoutDao } from '../../../../src/lib/workouts/data-sources/workout-dao';
 import { Exercise, Set, Workout } from '../../../../src/lib/workouts/workout';
-import { AllWorkoutsEvent } from '../../../../src/lib/workouts/service/workouts-events';
+import type { AllWorkoutsEvent } from '../../../../src/lib/workouts/service/workouts-event';
+import { get } from 'svelte/store';
 
 test('Get all workouts', async () => {
     const store = new WorkoutsStore(new FakeWorkoutsDataSource());
-    let event: AllWorkoutsEvent;
-    store.subscribe(state => {
-        if (state instanceof AllWorkoutsEvent) event = state;
-    });
     await store.getAllWorkouts();
+    const event: AllWorkoutsEvent = get(store) as AllWorkoutsEvent;
     expect(event!.workouts).toEqual([
         new Workout(
             BigInt(22),
@@ -38,22 +36,16 @@ test('Get all workouts', async () => {
 
 test('Save new workout', async () => {
     const store = new WorkoutsStore(new FakeWorkoutsDataSource());
-    let event: AllWorkoutsEvent;
-    store.subscribe(state => {
-        if (state instanceof AllWorkoutsEvent) event = state;
-    });
     await store.save('my new workout');
+    const event: AllWorkoutsEvent = get(store) as AllWorkoutsEvent;
     expect(event!.workouts.length).toEqual(2);
     expect(event!.workouts[1].title).toEqual('my new workout');
 });
 
 test('Delete workout', async () => {
     const store = new WorkoutsStore(new FakeWorkoutsDataSource());
-    let event: AllWorkoutsEvent;
-    store.subscribe(state => {
-        if (state instanceof AllWorkoutsEvent) event = state;
-    });
     await store.delete(BigInt(22));
+    const event: AllWorkoutsEvent = get(store) as AllWorkoutsEvent;
     expect(event!.workouts.length).toEqual(0);
 });
 

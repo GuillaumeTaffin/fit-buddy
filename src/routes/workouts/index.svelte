@@ -10,12 +10,14 @@
     import Card from '../../lib/components/Card.svelte';
     import TextField from '../../lib/components/TextField.svelte';
     import TextButton from '../../lib/components/button/TextButton.svelte';
+    import { WorkoutsPageController } from '../../lib/workouts/pages/workouts-page/workouts-page-controller';
+
+    let controller = new WorkoutsPageController(workoutsStore);
 
     onMount(() => {
         workoutsStore.getAllWorkouts();
     });
 
-    $: workouts = $workoutsStore;
 
     let showModal = false;
     let newTrainingTitle;
@@ -28,7 +30,7 @@
 
 <Page title='trainings'>
     <Column crossAxisAlignment='center' gap='2' class='grow w-full py-4'>
-        {#each workouts as workout (workout.id)}
+        {#each $controller.workouts as workout (workout.id)}
             <WorkoutCard {workout} />
         {/each}
     </Column>

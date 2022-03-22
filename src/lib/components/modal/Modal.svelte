@@ -3,9 +3,6 @@
     import { clickOutside } from './modal.ts';
     import Center from '../container/Center.svelte';
 
-    let clazz = '';
-    export { clazz as class };
-
     export let showModal = true;
 
     const hide = () => {
