@@ -4,10 +4,9 @@
     import NavLink from './NavLink.svelte';
     import { mediaStore, routesStore } from '../../stores';
     import { MediaState } from '../../media/media-store';
-    import { clickOutside } from '../modal/modal.ts';
+    import Modal from '../modal/Modal.svelte';
 
     export let visible = false;
-    export let toggleDrawer;
 
     function slide(node, { duration }) {
         return {
@@ -24,8 +23,8 @@
     $: linkPosition = $mediaStore === MediaState.MOBILE ? 'end' : 'start';
 </script>
 
-{#if visible}
-    <div transition:slide|local='{{duration: 300}}' use:clickOutside on:outclick={toggleDrawer}
+<Modal on:outclick showModal={visible}>
+    <div transition:slide|local='{{duration: 300}}'
          class='overflow-clip fixed top-0 right-0 w-64 h-full bg-gradient-to-bl from-primary-dark text-black'>
         <Column mainAxisAlignment={linkPosition} crossAxisAlignment='center' gap='8' class='px-4 py-16 h-full'>
 
@@ -35,4 +34,5 @@
 
         </Column>
     </div>
-{/if}
+
+</Modal>

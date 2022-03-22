@@ -5,11 +5,11 @@
     import Column from '../../lib/components/Column.svelte';
     import WorkoutCard from '../../lib/workouts/pages/WorkoutCard.svelte';
     import Center from '../../lib/components/container/Center.svelte';
-    import Modal from '../../lib/components/modal/Modal.svelte';
     import Card from '../../lib/components/Card.svelte';
     import TextField from '../../lib/components/TextField.svelte';
     import TextButton from '../../lib/components/button/TextButton.svelte';
     import { WorkoutsPageController } from '../../lib/workouts/pages/workouts-page/workouts-page-controller';
+    import Dialog from '../../lib/components/modal/Dialog.svelte';
 
     let controller = new WorkoutsPageController(workoutsStore);
     let newTrainingTitle;
@@ -37,7 +37,7 @@
         </TextButton>
     </Center>
 
-    <Modal {showModal} on:outclick={() => controller.closeNewTrainingDialog()}>
+    <Dialog {showModal} on:outclick={() => controller.closeNewTrainingDialog()}>
         <Card shadow='none' class='bg-white p-4'>
             <Column gap='4' crossAxisAlignment='center'>
                 <h1 class='text-black font-semibold tracking-wide'>NEW TRAINING</h1>
@@ -49,7 +49,7 @@
                 <TextButton on:click={() => controller.createWorkout(newTrainingTitle)}>CREATE</TextButton>
             </Column>
         </Card>
-    </Modal>
+    </Dialog>
 
 
 </Page>

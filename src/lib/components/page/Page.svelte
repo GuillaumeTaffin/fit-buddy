@@ -23,5 +23,5 @@
     <div class='flex flex-col w-full grow overflow-y-hidden'>
         <slot></slot>
     </div>
-    <Drawer visible={showDrawer} {toggleDrawer} />
+    <Drawer visible={showDrawer} on:outclick={toggleDrawer} />
 </div>
