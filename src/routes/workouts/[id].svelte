@@ -6,6 +6,7 @@
     } from '../../lib/workouts/pages/workout-details-page/workout-details-page-controller';
     import { workoutsStore } from '../../lib/stores';
     import { onMount } from 'svelte';
+    import WorkoutDetails from '../../lib/workouts/pages/workout-details-page/WorkoutDetails.svelte';
 
     const workoutId = parseInt($page.params.id);
 
@@ -20,6 +21,6 @@
 
 <Page {title}>
     {#if $controller.workout}
-        {$controller.workout.title}
+        <WorkoutDetails workout={$controller.workout} />
     {/if}
 </Page>
