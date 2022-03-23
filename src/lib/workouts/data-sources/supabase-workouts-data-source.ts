@@ -5,7 +5,7 @@ import type { WorkoutsDataSource } from './workouts-data-source';
 export class SupabaseWorkoutsDataSource implements WorkoutsDataSource {
 
     async getAll(): Promise<WorkoutDao[]> {
-        const response = await client.from('workouts').select();
+        const response = await client.from('workouts').select().order('training_at', { ascending: false });
         return response.data ?? [];
     }
 
