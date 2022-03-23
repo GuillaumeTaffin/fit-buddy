@@ -5,7 +5,7 @@
     export let exercise: Exercise;
 </script>
 
-<Card class='bg-white/75 px-4 py-2 max-w-md'>
+<Card class='bg-white/75 px-4 py-2 max-w-md shadow-none'>
     <h2 class='text-black text-lg font-medium'>{exercise.title}</h2>
     <div class='grid grid-cols-4 w-full'>
         <p class='text-black/75'>#</p>

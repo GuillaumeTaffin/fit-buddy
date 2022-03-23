@@ -1,6 +1,17 @@
+<!--suppress ReservedWordAsName -->
+<script lang='ts'>
+    export let priority = 'HIGH';
+    export let backgroundColor = 'primary';
+
+    $: background = priority === 'HIGH' ?
+        `bg-${backgroundColor} active:bg-${backgroundColor}/50`
+        : `bg-transparent active:bg-${backgroundColor}/50`;
+    $: text = priority === 'HIGH' ? 'text-white' : `text-${backgroundColor}`;
+</script>
+
 <button on:click
         class='
-        rounded-full bg-primary active:bg-primary/50
+        rounded-full {background} {text}
         py-2 px-4
         font-medium tracking-wider
 '>

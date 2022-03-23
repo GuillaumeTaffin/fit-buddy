@@ -12,4 +12,6 @@ space-y-2
 flex-col-reverse
 shadow-lg
 shadow-none
+bg-danger
+text-danger
 '></div>

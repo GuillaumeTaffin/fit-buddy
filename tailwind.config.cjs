@@ -9,7 +9,8 @@ module.exports = {
             'accent-light': '#FF7043',
             'white': '#FAFAFA',
             'gray': '#64748b',
-            'black': '#334155'
+            'black': '#334155',
+            'danger': '#F44336'
         }
     },
     plugins: []
