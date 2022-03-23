@@ -8,3 +8,8 @@ export class AllWorkoutsEvent implements WorkoutsEvent {
     constructor(readonly workouts: Workout[]) {
     }
 }
+
+export class WorkoutDetailsEvent implements WorkoutsEvent {
+    constructor(readonly workout: Workout) {
+    }
+}

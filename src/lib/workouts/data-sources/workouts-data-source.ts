@@ -6,4 +6,6 @@ export interface WorkoutsDataSource {
     create(title: string): Promise<boolean>;
 
     delete(id: bigint): Promise<boolean>;
+
+    getDetails(id: bigint): Promise<WorkoutDao[]>;
 }

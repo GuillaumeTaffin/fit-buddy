@@ -19,13 +19,13 @@ export class RoutesStore {
     updateRoutes(user: User, set: (value: NavItem[]) => void) {
         user.authenticated ?
             set([
-                { link: '/', icon: 'home.png', label: 'home' },
-                { link: '/workouts', icon: 'healthy-lifestyle-border.png', label: 'trainings' },
-                { link: '/settings', icon: 'settings.png', label: 'settings' }
+                { link: '/', icon: '/home.png', label: 'home' },
+                { link: '/workouts', icon: '/healthy-lifestyle-border.png', label: 'trainings' },
+                { link: '/settings', icon: '/settings.png', label: 'settings' }
             ]) :
             set([
-                { link: '/', icon: 'home.png', label: 'home' },
-                { link: '/auth', icon: 'unlocked.png', label: 'sign in' }
+                { link: '/', icon: '/home.png', label: 'home' },
+                { link: '/auth', icon: '/unlocked.png', label: 'sign in' }
             ]);
     }
 }

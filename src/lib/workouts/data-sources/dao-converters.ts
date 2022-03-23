@@ -14,7 +14,7 @@ export function mapExercise(exo: ExerciseDao): Exercise {
     return new Exercise(
         exo.id,
         exo.title,
-        exo.sets.map(mapSet)
+        exo.sets?.map(mapSet) ?? []
     );
 }
 

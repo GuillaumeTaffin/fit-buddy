@@ -23,4 +23,26 @@ export class SupabaseWorkoutsDataSource implements WorkoutsDataSource {
         return response.error == null;
     }
 
+    async getDetails(id: bigint): Promise<WorkoutDao[]> {
+        const response = await client.from<WorkoutDao>('workouts')
+            .select(`
+            id,
+            title,
+            training_at,
+            exercises:exercises(
+                id,
+                title,
+                sets:sets(
+                    id,
+                    index, 
+                    reps,
+                    weight,
+                    rest_time
+                )
+            )
+            `)
+            .filter('id', 'eq', id);
+        return response.data ?? [];
+    }
+
 }

@@ -18,4 +18,9 @@ export class WorkoutsRepository {
     async delete(id: bigint): Promise<boolean> {
         return await this.dataSource.delete(id);
     }
+
+    async getDetails(id: bigint): Promise<Workout> {
+        const workouts = await this.dataSource.getDetails(id);
+        return mapWorkout(workouts[0]);
+    }
 }

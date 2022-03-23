@@ -14,8 +14,7 @@
             css: t => {
                 const eased = cubicOut(t);
 
-                return `
-					transform: translate(${100 - 100 * eased}%, 0px);`;
+                return `transform: translate(${100 - 100 * eased}%, 0px);`;
             }
         };
     }

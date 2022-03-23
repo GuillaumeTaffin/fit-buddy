@@ -49,4 +49,8 @@ export class FakeWorkoutsDataSource implements WorkoutsDataSource {
         return Promise.resolve(this.workouts);
     }
 
+    getDetails(id: bigint): Promise<WorkoutDao[]> {
+        return Promise.resolve(this.workouts.filter(e => e.id === id));
+    }
+
 }

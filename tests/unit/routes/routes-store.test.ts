@@ -13,8 +13,8 @@ test('Not authenticated routes', async () => {
 
     await userStore.getCurrentUser();
     const notAuthenticatedRoutes: NavItem[] = [
-        { link: '/', icon: 'home.png', label: 'home' },
-        { link: '/auth', icon: 'unlocked.png', label: 'sign in' }
+        { link: '/', icon: '/home.png', label: 'home' },
+        { link: '/auth', icon: '/unlocked.png', label: 'sign in' }
     ];
     expect(state!).toEqual(notAuthenticatedRoutes);
 });
@@ -28,9 +28,9 @@ test('Authenticated routes', async () => {
 
     await userStore.getCurrentUser();
     const expectedRoutes: NavItem[] = [
-        { link: '/', icon: 'home.png', label: 'home' },
-        { link: '/workouts', icon: 'healthy-lifestyle-border.png', label: 'trainings' },
-        { link: '/settings', icon: 'settings.png', label: 'settings' }
+        { link: '/', icon: '/home.png', label: 'home' },
+        { link: '/workouts', icon: '/healthy-lifestyle-border.png', label: 'trainings' },
+        { link: '/settings', icon: '/settings.png', label: 'settings' }
     ];
     expect(state!).toEqual(expectedRoutes);
 });

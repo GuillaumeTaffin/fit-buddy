@@ -4,7 +4,7 @@ import type { Subscriber, Unsubscriber } from 'svelte/types/runtime/store';
 import type { Readable, Writable } from 'svelte/store';
 import { writable } from 'svelte/store';
 import type { WorkoutsEvent } from './workouts-event';
-import { AllWorkoutsEvent } from './workouts-event';
+import { AllWorkoutsEvent, WorkoutDetailsEvent } from './workouts-event';
 
 export class WorkoutsStore implements Readable<WorkoutsEvent> {
     private readonly repository;
@@ -36,5 +36,10 @@ export class WorkoutsStore implements Readable<WorkoutsEvent> {
         if (success) {
             await this.getAllWorkouts();
         }
+    }
+
+    async getDetails(id: bigint) {
+        const workout = await this.repository.getDetails(id);
+        this.state.set(new WorkoutDetailsEvent(workout));
     }
 }
