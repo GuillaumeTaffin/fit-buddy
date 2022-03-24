@@ -13,5 +13,7 @@ flex-col-reverse
 shadow-lg
 shadow-none
 bg-danger
+bg-danger/50
+active:bg-danger/50
 text-danger
 '></div>
