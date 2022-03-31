@@ -27,6 +27,8 @@
         await controller.delete(workoutId);
         await goto('/workouts');
     };
+
+    let deleteTrainingDialog;
 </script>
 
 <Page {title}>
@@ -37,14 +39,13 @@
     </div>
 
     <Center class='p-2'>
-        <TextButton on:click={() => controller.openDeleteTrainingDialog()}>
+        <TextButton on:click={() => deleteTrainingDialog.show()}>
             DELETE TRAINING
         </TextButton>
     </Center>
 
-    <Dialog {showModal}
-            onCancel={() => controller.closeDeleteTrainingDialog()}
-            onOk={deleteWorkout}
+    <Dialog bind:this={deleteTrainingDialog}
+            on:ok={deleteWorkout}
             okBackgroundColor='danger'
             okText='DELETE'>
 

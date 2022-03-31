@@ -21,29 +21,6 @@ test('Get workout details', async () => {
     expect(state.workout!.id).toEqual(BigInt(22));
 });
 
-test('Delete training dialog is closed by default', async () => {
-    const controller = new WorkoutDetailsPageController(new WorkoutsStore(new FakeWorkoutsDataSource()));
-    const initState = get(controller);
-    expect(initState.showDeleteDialog).toBeFalsy();
-});
-
-test('Show delete training dialog', async () => {
-    const controller = new WorkoutDetailsPageController(new WorkoutsStore(new FakeWorkoutsDataSource()));
-    const initState = get(controller);
-    await controller.openDeleteTrainingDialog();
-    const state = get(controller);
-    expect(state.showDeleteDialog).toBeTruthy();
-    expect(state.workout).toEqual(initState.workout);
-});
-
-test('Close delete training dialog', async () => {
-    const controller = new WorkoutDetailsPageController(new WorkoutsStore(new FakeWorkoutsDataSource()));
-    await controller.openDeleteTrainingDialog();
-    await controller.closeDeleteTrainingDialog();
-    const state = get(controller);
-    expect(state.showDeleteDialog).toBeFalsy();
-});
-
 test('Delete training', async () => {
     const workoutsStore = new WorkoutsStore(new FakeWorkoutsDataSource());
     const controller = new WorkoutDetailsPageController(workoutsStore);

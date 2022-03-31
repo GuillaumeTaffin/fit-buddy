@@ -10,13 +10,13 @@ export class WorkoutDetailsPageController implements Readable<WorkoutDetailsPage
     private readonly state: Writable<WorkoutDetailsPageState>;
 
     constructor(private readonly service: WorkoutsStore) {
-        this.state = writable(new WorkoutDetailsPageState(false));
+        this.state = writable(new WorkoutDetailsPageState());
         service.subscribe(e => this.handleWorkoutsEvents(e));
     }
 
     private handleWorkoutsEvents(event: WorkoutsEvent) {
         if (event instanceof WorkoutDetailsEvent) {
-            this.state.update(old => new WorkoutDetailsPageState(old.showDeleteDialog, event.workout));
+            this.state.update(() => new WorkoutDetailsPageState(event.workout));
         }
     }
 
@@ -26,14 +26,6 @@ export class WorkoutDetailsPageController implements Readable<WorkoutDetailsPage
 
     async getDetails(id: number) {
         await this.service.getDetails(BigInt(id));
-    }
-
-    async openDeleteTrainingDialog() {
-        this.state.update(old => new WorkoutDetailsPageState(true, old.workout));
-    }
-
-    async closeDeleteTrainingDialog() {
-        this.state.update(old => new WorkoutDetailsPageState(false, old.workout));
     }
 
     async delete(id: number) {

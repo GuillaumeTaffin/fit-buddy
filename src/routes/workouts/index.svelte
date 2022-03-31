@@ -17,8 +17,9 @@
         controller.getAllWorkouts();
     });
 
-    $: showModal = $controller.showNewTrainingDialog;
     $: workouts = $controller.workouts;
+
+    let newTrainingDialog;
 
 </script>
 
@@ -33,15 +34,14 @@
     </Column>
 
     <Center class='p-2'>
-        <TextButton on:click={() => controller.openNewTrainingDialog()}>
+        <TextButton on:click={() => newTrainingDialog.show()}>
             NEW TRAINING
         </TextButton>
     </Center>
 
-    <Dialog {showModal}
-            onOk={() => controller.createWorkout(newTrainingTitle)}
-            okText='CREATE'
-            onCancel={() => controller.closeNewTrainingDialog()}>
+    <Dialog bind:this={newTrainingDialog}
+            on:ok={() => controller.createWorkout(newTrainingTitle)}
+            okText='CREATE'>
         <h1 class='text-black font-semibold tracking-wide'>NEW TRAINING</h1>
         <TextField type='text'
                    hint='Training title'

@@ -4,24 +4,33 @@
     import Column from '../Column.svelte';
     import TextButton from '../button/TextButton.svelte';
     import Row from '../Row.svelte';
+    import { createEventDispatcher } from 'svelte';
 
-    export let showModal = true;
-    export let onOk = () => console.log('OK clicked');
+    const dispatch = createEventDispatcher();
+
+    let showModal = false;
+    const hide = () => showModal = false;
+    const ok = () => {
+        dispatch('ok');
+        hide();
+    };
+
     export let okText = 'OK';
     export let okBackgroundColor = 'primary';
-    export let onCancel = () => console.log('CANCEL clicked');
     export let cancelText = 'CANCEL';
+    export const show = () => showModal = true;
+
 </script>
 
-<Modal {showModal} on:outclick={onCancel} class='w-full max-w-md p-2'>
+<Modal {showModal} on:outclick={hide} class='w-full max-w-md p-2'>
     <Card shadow='none' class='bg-white p-4'>
         <Column gap='4' crossAxisAlignment='center'>
             <slot />
             <Row gap='4'>
-                <TextButton priority='HIGH' backgroundColor='{okBackgroundColor}' on:click={onOk}>
+                <TextButton priority='HIGH' backgroundColor='{okBackgroundColor}' on:click={ok}>
                     {okText}
                 </TextButton>
-                <TextButton priority='LOW' on:click={onCancel}>
+                <TextButton priority='LOW' on:click={hide}>
                     {cancelText}
                 </TextButton>
             </Row>

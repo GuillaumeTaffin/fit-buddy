@@ -10,13 +10,13 @@ export class WorkoutsPageController implements Readable<WorkoutsPageState> {
     private readonly state: Writable<WorkoutsPageState>;
 
     constructor(private workoutsStore: WorkoutsStore) {
-        this.state = writable(new WorkoutsPageState([], false));
+        this.state = writable(new WorkoutsPageState([]));
         workoutsStore.subscribe((e) => this.handleWorkoutsEvents(e));
     }
 
     private handleWorkoutsEvents(workoutsEvent: WorkoutsEvent) {
         if (workoutsEvent instanceof AllWorkoutsEvent) {
-            this.state.update((old) => new WorkoutsPageState(workoutsEvent.workouts, old.showNewTrainingDialog));
+            this.state.update(() => new WorkoutsPageState(workoutsEvent.workouts));
         }
     }
 
@@ -29,15 +29,7 @@ export class WorkoutsPageController implements Readable<WorkoutsPageState> {
     }
 
     async createWorkout(title: string) {
-        await this.closeNewTrainingDialog();
         await this.workoutsStore.save(title);
     }
 
-    async openNewTrainingDialog() {
-        this.state.update((old) => new WorkoutsPageState(old.workouts, true));
-    }
-
-    async closeNewTrainingDialog() {
-        this.state.update((old) => new WorkoutsPageState(old.workouts, false));
-    }
 }
