@@ -65,4 +65,12 @@ export class FakeWorkoutsDataSource implements WorkoutsDataSource {
         return true;
     }
 
+    async deleteExercise(exerciseId: number): Promise<boolean> {
+        this.workouts = this.workouts.map(w => {
+            const exos = w.exercises?.filter(e => e.id !== exerciseId);
+            return new WorkoutDao(w.id, w.title, w.training_at, exos);
+        });
+        return true;
+    }
+
 }

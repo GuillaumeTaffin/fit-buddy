@@ -35,4 +35,8 @@ export class WorkoutDetailsPageController implements Readable<WorkoutDetailsPage
     async createExercise(workoutId: number, title: string) {
         await this.service.createExercise(workoutId, title);
     }
+
+    async deleteExercise(workoutId: number, exerciseId: number) {
+        await this.service.deleteExercise(workoutId, exerciseId);
+    }
 }

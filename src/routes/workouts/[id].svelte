@@ -1,10 +1,7 @@
 <script>
     import Page from '../../lib/components/page/Page.svelte';
     import { page } from '$app/stores';
-    import {
-        WorkoutDetailsPageController
-    } from '../../lib/workouts/pages/workout-details-page/workout-details-page-controller';
-    import { workoutsStore } from '../../lib/stores';
+    import { workoutDetailsController } from '../../lib/stores';
     import { onMount } from 'svelte';
     import WorkoutDetails from '../../lib/workouts/pages/workout-details-page/WorkoutDetails.svelte';
     import TextButton from '../../lib/components/button/TextButton.svelte';
@@ -15,7 +12,7 @@
 
     const workoutId = parseInt($page.params.id);
 
-    const controller = new WorkoutDetailsPageController(workoutsStore);
+    const controller = workoutDetailsController;
 
     onMount(() => {
         controller.getDetails(workoutId);

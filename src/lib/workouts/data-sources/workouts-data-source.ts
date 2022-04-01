@@ -10,4 +10,6 @@ export interface WorkoutsDataSource {
     getDetails(id: number): Promise<WorkoutDao[]>;
 
     createExercise(workoutId: number, title: string): Promise<boolean>;
+
+    deleteExercise(exerciseId: number): Promise<boolean>;
 }

@@ -49,4 +49,11 @@ export class WorkoutsStore implements Readable<WorkoutsEvent> {
             await this.getDetails(workoutId);
         }
     }
+
+    async deleteExercise(workoutId: number, exerciseId: number) {
+        const success = await this.repository.deleteExercise(exerciseId);
+        if (success) {
+            await this.getDetails(workoutId);
+        }
+    }
 }

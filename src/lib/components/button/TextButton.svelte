@@ -2,6 +2,7 @@
 <script lang='ts'>
     export let priority = 'HIGH';
     export let backgroundColor = 'primary';
+    export let size = 'md';
 
     $: background = priority === 'HIGH' ?
         `bg-${backgroundColor} active:bg-${backgroundColor}/50`
@@ -13,7 +14,7 @@
         class='
         rounded-full {background} {text}
         py-2 px-4
-        font-medium tracking-wider
+        font-medium tracking-wider text-{size}
 '>
     <slot></slot>
 </button>

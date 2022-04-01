@@ -3,6 +3,7 @@ import type { WorkoutsDataSource } from '../data-sources/workouts-data-source';
 import { mapWorkout } from '../data-sources/dao-converters';
 
 export class WorkoutsRepository {
+
     constructor(private readonly dataSource: WorkoutsDataSource) {
     }
 
@@ -26,5 +27,9 @@ export class WorkoutsRepository {
 
     async createExercise(workoutId: number, title: string): Promise<boolean> {
         return await this.dataSource.createExercise(workoutId, title);
+    }
+
+    async deleteExercise(exerciseId: number): Promise<boolean> {
+        return await this.dataSource.deleteExercise(exerciseId);
     }
 }

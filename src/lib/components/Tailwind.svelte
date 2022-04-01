@@ -16,4 +16,5 @@ bg-danger
 bg-danger/50
 active:bg-danger/50
 text-danger
+text-xs
 '></div>

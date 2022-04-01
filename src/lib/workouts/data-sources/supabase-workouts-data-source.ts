@@ -46,7 +46,6 @@ export class SupabaseWorkoutsDataSource implements WorkoutsDataSource {
     }
 
     async createExercise(workoutId: number, title: string): Promise<boolean> {
-        console.log('create exo');
         const user = client.auth.user();
         if (user) {
             const response = await client.from('exercises').insert([{
@@ -57,6 +56,11 @@ export class SupabaseWorkoutsDataSource implements WorkoutsDataSource {
             return response.error == null;
         }
         return false;
+    }
+
+    async deleteExercise(exerciseId: number): Promise<boolean> {
+        const response = await client.from('exercises').delete().match({ id: exerciseId });
+        return response.error == null;
     }
 
 }

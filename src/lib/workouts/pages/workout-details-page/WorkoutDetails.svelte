@@ -4,6 +4,7 @@
     import Column from '../../../components/Column.svelte';
     import Row from '../../../components/Row.svelte';
 
+
     export let workout: Workout;
 </script>
 
@@ -15,7 +16,7 @@
 
     <Column gap='2' class='overflow-y-auto'>
         {#each workout.exercises as exercise (exercise.id)}
-            <ExerciseCard {exercise} />
+            <ExerciseCard {exercise} workoutId={workout.id} />
         {/each}
     </Column>
 
