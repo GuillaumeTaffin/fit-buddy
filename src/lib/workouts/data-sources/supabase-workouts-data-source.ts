@@ -18,12 +18,12 @@ export class SupabaseWorkoutsDataSource implements WorkoutsDataSource {
         return false;
     }
 
-    async delete(id: bigint): Promise<boolean> {
+    async delete(id: number): Promise<boolean> {
         const response = await client.from('workouts').delete().match({ id });
         return response.error == null;
     }
 
-    async getDetails(id: bigint): Promise<WorkoutDao[]> {
+    async getDetails(id: number): Promise<WorkoutDao[]> {
         const response = await client.from<WorkoutDao>('workouts')
             .select(`
             id,
@@ -43,6 +43,20 @@ export class SupabaseWorkoutsDataSource implements WorkoutsDataSource {
             `)
             .filter('id', 'eq', id);
         return response.data ?? [];
+    }
+
+    async createExercise(workoutId: number, title: string): Promise<boolean> {
+        console.log('create exo');
+        const user = client.auth.user();
+        if (user) {
+            const response = await client.from('exercises').insert([{
+                title,
+                user_id: user.id,
+                workout_id: workoutId
+            }]);
+            return response.error == null;
+        }
+        return false;
     }
 
 }

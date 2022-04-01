@@ -45,7 +45,7 @@
         <h1 class='text-black font-semibold tracking-wide'>NEW TRAINING</h1>
         <TextField type='text'
                    hint='Training title'
-                   class='border border-primary-dark'
+                   outlined={true}
                    bind:text={newTrainingTitle}
         />
     </Dialog>

@@ -5,6 +5,9 @@
 
     export let text = '';
 
+    export let outlined = false;
+    $: outlinedClass = outlined ? 'border border-primary-dark' : '';
+
     let input;
 
     export function focus() {
@@ -20,4 +23,4 @@
        bind:this={input}
        placeholder={hint}
        on:change={val => text = val.target.value}
-       class='bg-white text-black w-full p-4 outline-primary-dark rounded-md text-black {clazz}'>
+       class='bg-white text-black w-full p-4 outline-primary-dark rounded-md text-black {outlinedClass} {clazz}'>

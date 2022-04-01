@@ -18,7 +18,7 @@ test('Get workout details', async () => {
     await controller.getDetails(22);
     const state = get(controller);
     expect(state.workout).toBeDefined();
-    expect(state.workout!.id).toEqual(BigInt(22));
+    expect(state.workout!.id).toEqual(22);
 });
 
 test('Delete training', async () => {
@@ -27,4 +27,11 @@ test('Delete training', async () => {
     await controller.delete(22);
     const workoutsEvent = get(workoutsStore) as AllWorkoutsEvent;
     expect(workoutsEvent.workouts).toEqual([]);
+});
+
+test('Create exercise', async () => {
+    const controller = new WorkoutDetailsPageController(new WorkoutsStore(new FakeWorkoutsDataSource()));
+    await controller.createExercise(22, 'new exercise');
+    const state = get(controller);
+    expect(state.workout!.exercises.length).toEqual(2);
 });

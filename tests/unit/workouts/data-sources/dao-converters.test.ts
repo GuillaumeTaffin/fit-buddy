@@ -3,7 +3,7 @@ import { mapWorkout } from '../../../../src/lib/workouts/data-sources/dao-conver
 
 test('Convert workout without exercises', () => {
     const workoutDao: WorkoutDao = {
-        id: BigInt(3),
+        id: 3,
         title: 'my workout',
         training_at: new Date(666).toISOString(),
         exercises: []
@@ -18,7 +18,7 @@ test('Convert workout without exercises', () => {
 
 test('Undefined exercises are converted to empty list', () => {
     const workoutDao: WorkoutDao = {
-        id: BigInt(56),
+        id: 56,
         title: 'my workout',
         training_at: new Date(666).toISOString(),
         exercises: undefined

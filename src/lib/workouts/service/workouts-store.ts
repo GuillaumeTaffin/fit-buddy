@@ -31,15 +31,22 @@ export class WorkoutsStore implements Readable<WorkoutsEvent> {
         }
     }
 
-    async delete(id: bigint) {
+    async delete(id: number) {
         const success = await this.repository.delete(id);
         if (success) {
             await this.getAllWorkouts();
         }
     }
 
-    async getDetails(id: bigint) {
+    async getDetails(id: number) {
         const workout = await this.repository.getDetails(id);
         this.state.set(new WorkoutDetailsEvent(workout));
+    }
+
+    async createExercise(workoutId: number, title: string) {
+        const success = await this.repository.createExercise(workoutId, title);
+        if (success) {
+            await this.getDetails(workoutId);
+        }
     }
 }

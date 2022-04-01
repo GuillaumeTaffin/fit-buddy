@@ -11,16 +11,16 @@ test('Get all workouts', async () => {
     const event: AllWorkoutsEvent = get(store) as AllWorkoutsEvent;
     expect(event!.workouts).toEqual([
         new Workout(
-            BigInt(22),
+            22,
             'workout 1',
             new Date(2042),
             [
                 new Exercise(
-                    BigInt(3),
+                    3,
                     'exo 1',
                     [
                         new Set(
-                            BigInt(4),
+                            4,
                             6,
                             89.5,
                             15,
@@ -43,7 +43,7 @@ test('Save new workout', async () => {
 
 test('Delete workout', async () => {
     const store = new WorkoutsStore(new FakeWorkoutsDataSource());
-    await store.delete(BigInt(22));
+    await store.delete(22);
     const event: AllWorkoutsEvent = get(store) as AllWorkoutsEvent;
     expect(event!.workouts.length).toEqual(0);
 });

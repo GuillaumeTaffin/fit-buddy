@@ -25,10 +25,14 @@ export class WorkoutDetailsPageController implements Readable<WorkoutDetailsPage
     }
 
     async getDetails(id: number) {
-        await this.service.getDetails(BigInt(id));
+        await this.service.getDetails(id);
     }
 
     async delete(id: number) {
-        await this.service.delete(BigInt(id));
+        await this.service.delete(id);
+    }
+
+    async createExercise(workoutId: number, title: string) {
+        await this.service.createExercise(workoutId, title);
     }
 }

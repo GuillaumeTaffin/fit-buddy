@@ -15,12 +15,16 @@ export class WorkoutsRepository {
         return await this.dataSource.create(title);
     }
 
-    async delete(id: bigint): Promise<boolean> {
+    async delete(id: number): Promise<boolean> {
         return await this.dataSource.delete(id);
     }
 
-    async getDetails(id: bigint): Promise<Workout> {
+    async getDetails(id: number): Promise<Workout> {
         const workouts = await this.dataSource.getDetails(id);
         return mapWorkout(workouts[0]);
+    }
+
+    async createExercise(workoutId: number, title: string): Promise<boolean> {
+        return await this.dataSource.createExercise(workoutId, title);
     }
 }

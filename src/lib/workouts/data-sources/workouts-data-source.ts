@@ -5,7 +5,9 @@ export interface WorkoutsDataSource {
 
     create(title: string): Promise<boolean>;
 
-    delete(id: bigint): Promise<boolean>;
+    delete(id: number): Promise<boolean>;
 
-    getDetails(id: bigint): Promise<WorkoutDao[]>;
+    getDetails(id: number): Promise<WorkoutDao[]>;
+
+    createExercise(workoutId: number, title: string): Promise<boolean>;
 }
