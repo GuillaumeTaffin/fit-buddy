@@ -12,4 +12,6 @@ export interface WorkoutsDataSource {
     createExercise(workoutId: number, title: string): Promise<boolean>;
 
     deleteExercise(exerciseId: number): Promise<boolean>;
+
+    createSet(exerciseId: number, setIndex: number): Promise<boolean>;
 }

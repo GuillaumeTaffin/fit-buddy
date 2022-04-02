@@ -63,4 +63,17 @@ export class SupabaseWorkoutsDataSource implements WorkoutsDataSource {
         return response.error == null;
     }
 
+    async createSet(exerciseId: number, setIndex: number): Promise<boolean> {
+        const user = client.auth.user();
+        if (user) {
+            const response = await client.from('sets').insert([{
+                user_id: user.id,
+                exercise_id: exerciseId,
+                index: setIndex
+            }]);
+            return response.error == null;
+        }
+        return false;
+    }
+
 }

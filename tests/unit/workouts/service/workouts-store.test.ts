@@ -21,7 +21,7 @@ test('Get all workouts', async () => {
                     [
                         new Set(
                             4,
-                            6,
+                            0,
                             89.5,
                             15,
                             90

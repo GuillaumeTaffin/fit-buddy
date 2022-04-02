@@ -1,5 +1,5 @@
 import type { WorkoutsDataSource } from '../../../../src/lib/workouts/data-sources/workouts-data-source';
-import { ExerciseDao, WorkoutDao } from '../../../../src/lib/workouts/data-sources/workout-dao';
+import { ExerciseDao, SetDao, WorkoutDao } from '../../../../src/lib/workouts/data-sources/workout-dao';
 
 export class FakeWorkoutsDataSource implements WorkoutsDataSource {
     private workouts: WorkoutDao[] = [
@@ -14,7 +14,7 @@ export class FakeWorkoutsDataSource implements WorkoutsDataSource {
                     sets: [
                         {
                             id: 4,
-                            index: 6,
+                            index: 0,
                             weight: 89.5,
                             reps: 15,
                             rest_time: 90
@@ -69,6 +69,21 @@ export class FakeWorkoutsDataSource implements WorkoutsDataSource {
         this.workouts = this.workouts.map(w => {
             const exos = w.exercises?.filter(e => e.id !== exerciseId);
             return new WorkoutDao(w.id, w.title, w.training_at, exos);
+        });
+        return true;
+    }
+
+    async createSet(exerciseId: number, setIndex: number): Promise<boolean> {
+        this.workouts = this.workouts.map(w => {
+            const exercises = w.exercises ?? [];
+            return new WorkoutDao(w.id, w.title, w.training_at, exercises.map(exo => {
+                if (exo.id === exerciseId) {
+                    const sets = exo.sets ?? [];
+                    sets.push(new SetDao(99, setIndex, 0, 0, 0));
+                    return new ExerciseDao(exo.id, exo.title, sets);
+                }
+                return exo;
+            }));
         });
         return true;
     }

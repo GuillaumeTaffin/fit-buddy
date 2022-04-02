@@ -32,4 +32,8 @@ export class WorkoutsRepository {
     async deleteExercise(exerciseId: number): Promise<boolean> {
         return await this.dataSource.deleteExercise(exerciseId);
     }
+
+    async createSet(exerciseId: number, setIndex: number): Promise<boolean> {
+        return await this.dataSource.createSet(exerciseId, setIndex);
+    }
 }

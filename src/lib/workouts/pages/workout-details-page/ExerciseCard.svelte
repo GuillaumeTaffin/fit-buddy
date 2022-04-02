@@ -37,7 +37,9 @@
             <TextButton priority='LOW' backgroundColor='danger' size='xs' on:click={() => deleteExerciseDialog.show()}>
                 DELETE
             </TextButton>
-            <TextButton priority='LOW' size='xs'>ADD SET</TextButton>
+            <TextButton priority='LOW' size='xs'
+                        on:click={() => controller.createSet(workoutId, exercise.id, exercise.sets.length)}>ADD SET
+            </TextButton>
         </Row>
     </Column>
 

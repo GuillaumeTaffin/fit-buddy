@@ -56,4 +56,11 @@ export class WorkoutsStore implements Readable<WorkoutsEvent> {
             await this.getDetails(workoutId);
         }
     }
+
+    async createSet(workoutId: number, exerciseId: number, setIndex: number) {
+        const success = await this.repository.createSet(exerciseId, setIndex);
+        if (success) {
+            await this.getDetails(workoutId);
+        }
+    }
 }
