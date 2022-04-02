@@ -1,18 +1,23 @@
 <script>
     import Page from '../../lib/components/page/Page.svelte';
     import { page } from '$app/stores';
-    import { workoutDetailsController } from '../../lib/stores';
-    import { onMount } from 'svelte';
+    import { onMount, setContext } from 'svelte';
     import WorkoutDetails from '../../lib/workouts/pages/workout-details-page/WorkoutDetails.svelte';
     import TextButton from '../../lib/components/button/TextButton.svelte';
     import Dialog from '../../lib/components/modal/Dialog.svelte';
     import { goto } from '$app/navigation';
     import Row from '../../lib/components/Row.svelte';
     import TextField from '../../lib/components/TextField.svelte';
+    import {
+        key,
+        WorkoutDetailsPageController
+    } from '../../lib/workouts/pages/workout-details-page/workout-details-page-controller';
+    import { workoutsStore } from '../../lib/stores';
 
     const workoutId = parseInt($page.params.id);
 
-    const controller = workoutDetailsController;
+    const controller = new WorkoutDetailsPageController(workoutsStore);
+    setContext(key, controller);
 
     onMount(() => {
         controller.getDetails(workoutId);

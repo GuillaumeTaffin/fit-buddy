@@ -6,6 +6,8 @@ import type { Subscriber, Unsubscriber } from 'svelte/types/runtime/store';
 import type { WorkoutsEvent } from '../../service/workouts-event';
 import { WorkoutDetailsEvent } from '../../service/workouts-event';
 
+export const key = Symbol();
+
 export class WorkoutDetailsPageController implements Readable<WorkoutDetailsPageState> {
     private readonly state: Writable<WorkoutDetailsPageState>;
 

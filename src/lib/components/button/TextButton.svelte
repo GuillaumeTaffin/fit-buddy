@@ -3,6 +3,7 @@
     export let priority = 'HIGH';
     export let backgroundColor = 'primary';
     export let size = 'md';
+    export let padding = 2;
 
     $: background = priority === 'HIGH' ?
         `bg-${backgroundColor} active:bg-${backgroundColor}/50`
@@ -13,7 +14,7 @@
 <button on:click
         class='
         rounded-full {background} {text}
-        py-2 px-4
+        py-{padding} px-{padding * 2}
         font-medium tracking-wider text-{size}
 '>
     <slot></slot>
