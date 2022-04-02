@@ -88,4 +88,12 @@ export class FakeWorkoutsDataSource implements WorkoutsDataSource {
         return true;
     }
 
+    async deleteSet(setId: number): Promise<boolean> {
+        this.workouts = this.workouts.map(w => {
+            const exos = w.exercises?.map(e => new ExerciseDao(e.id, e.title, e.sets.filter(s => s.id !== setId))) ?? [];
+            return new WorkoutDao(w.id, w.title, w.training_at, exos);
+        });
+        return true;
+    }
+
 }

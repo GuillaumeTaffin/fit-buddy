@@ -76,4 +76,9 @@ export class SupabaseWorkoutsDataSource implements WorkoutsDataSource {
         return false;
     }
 
+    async deleteSet(setId: number): Promise<boolean> {
+        const response = await client.from('sets').delete().match({ id: setId });
+        return response.error == null;
+    }
+
 }
