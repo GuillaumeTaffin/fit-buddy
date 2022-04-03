@@ -25,8 +25,6 @@
 
 <Page title='trainings'>
 
-    <h1 class='p-4 text-xl font-semibold tracking-wider'>Last Trainings</h1>
-
     <Column crossAxisAlignment='center' gap='2' class='grow w-full p-4 overflow-y-scroll'>
         {#each workouts as workout (workout.id)}
             <WorkoutCard {workout} />

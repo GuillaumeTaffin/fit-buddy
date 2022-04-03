@@ -3,14 +3,15 @@
     import ExerciseCard from './ExerciseCard.svelte';
     import Column from '../../../components/Column.svelte';
     import Row from '../../../components/Row.svelte';
+    import Calendar from 'svelte-material-icons/Calendar.svelte';
 
 
     export let workout: Workout;
 </script>
 
-<Column gap='2' class='px-4 pt-4 overflow-y-auto'>
-    <Row crossAxisAlignment='center' mainAxisAlignment='between'>
-        <h1 class='text-2xl font-bold tracking-wider'>{workout.title}</h1>
+<Column gap='4' class='px-4 overflow-y-auto'>
+    <Row crossAxisAlignment='center' mainAxisAlignment='end' gap='2'>
+        <Calendar size='1.5em' />
         <p>{workout.trainingAt.toLocaleDateString()}</p>
     </Row>
 

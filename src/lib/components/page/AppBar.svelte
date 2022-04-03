@@ -1,9 +1,7 @@
 <script lang='ts'>
     import Row from '../Row.svelte';
     import PageTitle from '../PageTitle.svelte';
-    import Center from '../container/Center.svelte';
     import ChevronLeft from 'svelte-material-icons/ChevronLeft.svelte';
-    import ChevronRight from 'svelte-material-icons/ChevronRight.svelte';
     import { mediaStore } from '../../stores';
     import { MediaState } from '../../media/media-store';
     import DrawerIcon from '../navigation/DrawerIcon.svelte';
@@ -17,10 +15,9 @@
 <Row class='h-fit py-4 px-2 w-full  {roundedCorner}' crossAxisAlignment='center'>
     <Row class='w-16' mainAxisAlignment='start'>
         <span on:click={() => window.history.back()}><ChevronLeft color='white' size='2em' /></span>
-        <span on:click={() => window.history.forward()}><ChevronRight color='white' size='2em' /></span>
     </Row>
-    <Center class='grow'>
+    <Row mainAxisAlignment='between' crossAxisAlignment='center' class='w-full'>
         <PageTitle {title} />
-    </Center>
-    <DrawerIcon on:click={onClickDrawerIcon} />
+        <DrawerIcon on:click={onClickDrawerIcon} />
+    </Row>
 </Row>
