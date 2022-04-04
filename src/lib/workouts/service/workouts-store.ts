@@ -57,8 +57,8 @@ export class WorkoutsStore implements Readable<WorkoutsEvent> {
         }
     }
 
-    async createSet(workoutId: number, exerciseId: number, setIndex: number) {
-        const success = await this.repository.createSet(exerciseId, setIndex);
+    async createSet(workoutId: number, exerciseId: number, reps: number, weight: number, rest: number) {
+        const success = await this.repository.createSet(exerciseId, reps, weight, rest);
         if (success) {
             await this.getDetails(workoutId);
         }

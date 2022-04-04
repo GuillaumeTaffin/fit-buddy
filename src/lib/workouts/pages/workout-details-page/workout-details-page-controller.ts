@@ -42,8 +42,8 @@ export class WorkoutDetailsPageController implements Readable<WorkoutDetailsPage
         await this.service.deleteExercise(workoutId, exerciseId);
     }
 
-    async createSet(workoutId: number, exerciseId: number, setIndex: number) {
-        await this.service.createSet(workoutId, exerciseId, setIndex);
+    async createSet(workoutId: number, exerciseId: number, reps: number, weight: number, rest: number) {
+        await this.service.createSet(workoutId, exerciseId, reps, weight, rest);
     }
 
     async deleteSet(workoutId: number, setId: number) {

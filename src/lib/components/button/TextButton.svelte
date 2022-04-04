@@ -2,7 +2,7 @@
 <script lang='ts'>
     export let priority = 'HIGH';
     export let backgroundColor = 'primary';
-    export let size = 'md';
+    export let size = 'sm';
     export let padding = 2;
 
     $: background = priority === 'HIGH' ?

@@ -13,7 +13,7 @@ export interface WorkoutsDataSource {
 
     deleteExercise(exerciseId: number): Promise<boolean>;
 
-    createSet(exerciseId: number, setIndex: number): Promise<boolean>;
+    createSet(exerciseId: number, reps: number, weight: number, rest: number): Promise<boolean>;
 
     deleteSet(setId: number): Promise<boolean>;
 }

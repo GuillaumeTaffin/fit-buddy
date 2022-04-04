@@ -1,13 +1,15 @@
 <script lang='ts'>
+    export let size = 'md';
 </script>
 
 <button
     on:click
     class='
-    py-2 px-4
+    py-1 px-2
     rounded-full bg-transparent active:bg-white/25
     text-primary font-semibold tracking-wider
-    ring-2 ring-primary
+    outline outline-primary
+    text-{size}
 '
 >
     <slot></slot>

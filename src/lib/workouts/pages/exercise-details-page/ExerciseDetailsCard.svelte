@@ -5,7 +5,7 @@
     import Column from '../../../components/Column.svelte';
     import Row from '../../../components/Row.svelte';
     import Dialog from '../../../components/modal/Dialog.svelte';
-    import { key, WorkoutDetailsPageController } from './workout-details-page-controller';
+    import { key, WorkoutDetailsPageController } from '../workout-details-page/workout-details-page-controller';
     import { getContext } from 'svelte';
     import Close from 'svelte-material-icons/CloseThick.svelte';
     import Center from '../../../components/container/Center.svelte';
@@ -14,7 +14,7 @@
     export let workoutId: number;
 
     let controller: WorkoutDetailsPageController = getContext(key);
-
+    
     let deleteSetDialog;
     let setToDelete: number;
 

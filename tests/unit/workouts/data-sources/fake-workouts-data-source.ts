@@ -73,13 +73,13 @@ export class FakeWorkoutsDataSource implements WorkoutsDataSource {
         return true;
     }
 
-    async createSet(exerciseId: number, setIndex: number): Promise<boolean> {
+    async createSet(exerciseId: number, reps: number, weight: number, rest: number): Promise<boolean> {
         this.workouts = this.workouts.map(w => {
             const exercises = w.exercises ?? [];
             return new WorkoutDao(w.id, w.title, w.training_at, exercises.map(exo => {
                 if (exo.id === exerciseId) {
                     const sets = exo.sets ?? [];
-                    sets.push(new SetDao(99, setIndex, 0, 0, 0));
+                    sets.push(new SetDao(99, 0, weight, reps, rest));
                     return new ExerciseDao(exo.id, exo.title, sets);
                 }
                 return exo;
