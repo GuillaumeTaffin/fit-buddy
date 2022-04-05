@@ -60,7 +60,7 @@
 </script>
 
 <Page {title}>
-    <Column class='px-4 pb-2 grow' gap='4'>
+    <Column class='px-3 pb-3 grow' gap='4'>
         <Row mainAxisAlignment='end' class='pt-1'>
             <OutlinedButton size='xs' on:click={() => deleteExerciseDialog.show()}>
                 DELETE
@@ -75,14 +75,14 @@
             {#if exercise}
                 {#if exercise.sets?.length}
                     {#each exercise.sets.sort((n1, n2) => n1.id - n2.id) as set, i (set.id)}
-                        <Card class='bg-white/75 p-4'>
+                        <Card class='bg-white/75 py-4 px-2'>
                             <Row>
                                 <div class='grow grid grid-cols-3 divide-x divide-black/50'>
                                     <SetInfo data={set.reps} label='REPS' />
                                     <SetInfo data={set.weight} label='WEIGHT' />
                                     <SetInfo data={set.rest} label='REST' />
                                 </div>
-                                <Row gap='2'>
+                                <Row gap='3' class='pr-2'>
                                     <span class='material-icons-outlined text-xl text-primary/50'
                                           on:click={() => editSet(set)}>edit</span>
                                     <span class='material-icons-outlined text-xl text-danger/50'
@@ -96,7 +96,7 @@
 
         </Column>
 
-        <TextButton size='xs' on:click={() => createSetDialog.show()}>CREATE SET</TextButton>
+        <TextButton size='sm' on:click={() => createSetDialog.show()}>CREATE SET</TextButton>
     </Column>
 
 </Page>
