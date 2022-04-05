@@ -9,17 +9,17 @@
     export let workout: Workout;
 </script>
 
-<Column gap='4' class='px-3 overflow-y-auto'>
+<Column class='px-3 pb-2' gap='4'>
     <Row crossAxisAlignment='center' gap='2'>
         <Calendar size='1.5em' />
         <p class='text-sm tracking-wider text-white/75'>{workout.trainingAt.toLocaleDateString()}</p>
     </Row>
-
     <h2 class='text-base font-medium tracking-widest'>EXERCISES</h2>
-    <Column gap='2' class='overflow-y-auto'>
-        {#each workout.exercises as exercise (exercise.id)}
-            <ExerciseCard {exercise} workoutId={workout.id} />
-        {/each}
-    </Column>
-
 </Column>
+
+<Column gap='2' class='grow overflow-y-auto px-3'>
+    {#each workout.exercises as exercise (exercise.id)}
+        <ExerciseCard {exercise} workoutId={workout.id} />
+    {/each}
+</Column>
+

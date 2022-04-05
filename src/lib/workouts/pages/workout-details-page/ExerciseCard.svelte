@@ -11,7 +11,7 @@
     $: totalWeight = exercise?.sets.map(s => s.weight).reduce((sum, current) => sum + current, 0) ?? 0;
 </script>
 
-<Card class='bg-white/75 px-4 py-2 max-w-md shadow-none'
+<Card class='bg-white/75 px-4 py-2 max-w-md'
       on:click={() => goto(`/workouts/${workoutId}/exercise/${exercise.id}`)}>
     <Column>
         <h2 class='text-black text-md font-medium'>{exercise.title.toUpperCase()}</h2>

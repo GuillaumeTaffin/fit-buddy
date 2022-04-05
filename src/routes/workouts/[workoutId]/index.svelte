@@ -41,11 +41,9 @@
         </span>
     </Row>
 
-    <div class='grow overflow-y-auto'>
-        {#if $controller.workout}
-            <WorkoutDetails workout={$controller.workout} />
-        {/if}
-    </div>
+    {#if $controller.workout}
+        <WorkoutDetails workout={$controller.workout} />
+    {/if}
 
     <WorkoutActions {workoutId} />
 
