@@ -28,7 +28,7 @@
     let editSetDialog;
 
     $: workout = $controller.workout;
-    $: exercise = workout?.exercises.find(e => e.id === exerciseId);
+    $: exercise = workout.exercises.find(e => e.id === exerciseId);
     $: title = exercise?.title ?? 'Loading...';
 
     let newSetReps = 10;
