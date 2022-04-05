@@ -79,9 +79,9 @@
                         <Card class='bg-white/75 py-4 px-2' on:click={() => editSet(set)}>
                             <Row>
                                 <div class='grow grid grid-cols-3 divide-x divide-black/50'>
-                                    <SetInfo data={set.reps} label='REPS' />
-                                    <SetInfo data={set.weight} label='WEIGHT' />
-                                    <SetInfo data={set.rest} label='REST' />
+                                    <SetInfo data={set.reps} label='reps' />
+                                    <SetInfo data={set.weight} label='lb' />
+                                    <SetInfo data={set.rest} label='seconds' />
                                 </div>
                                 <Row gap='3' class='pr-2'>
                                     <span class='material-icons-outlined text-xl text-danger/50'
