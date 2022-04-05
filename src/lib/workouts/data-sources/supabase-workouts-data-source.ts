@@ -83,4 +83,14 @@ export class SupabaseWorkoutsDataSource implements WorkoutsDataSource {
         return response.error == null;
     }
 
+    async updateSet(setId: number, reps: number, weight: number, rest: number): Promise<boolean> {
+        const response = await client.from('sets')
+            .update({
+                reps,
+                weight,
+                rest_time: rest
+            })
+            .match({ id: setId });
+        return response.error == null;
+    }
 }

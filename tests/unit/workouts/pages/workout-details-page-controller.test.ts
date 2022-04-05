@@ -60,3 +60,14 @@ test('Delete set', async () => {
     const state = get(controller);
     expect(state.workout!.exercises[0].sets.length).toEqual(0);
 });
+
+test('Edit set', async () => {
+    const controller = new WorkoutDetailsPageController(new WorkoutsStore(new FakeWorkoutsDataSource()));
+    await controller.updateSet(22, 4, 66, 67, 68);
+    const state = get(controller);
+    expect(state.workout!.exercises[0].sets.length).toEqual(1);
+    expect(state.workout!.exercises[0].sets[0].index).toEqual(0);
+    expect(state.workout!.exercises[0].sets[0].rest).toEqual(68);
+    expect(state.workout!.exercises[0].sets[0].reps).toEqual(66);
+    expect(state.workout!.exercises[0].sets[0].weight).toEqual(67);
+});

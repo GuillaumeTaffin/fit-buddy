@@ -70,4 +70,11 @@ export class WorkoutsStore implements Readable<WorkoutsEvent> {
             await this.getDetails(workoutId);
         }
     }
+
+    async updateSet(workoutId: number, setId: number, reps: number, weight: number, rest: number) {
+        const success = await this.repository.updateSet(setId, reps, weight, rest);
+        if (success) {
+            await this.getDetails(workoutId);
+        }
+    }
 }
