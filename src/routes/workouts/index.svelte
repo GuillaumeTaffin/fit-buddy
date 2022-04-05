@@ -4,11 +4,10 @@
     import Page from '../../lib/components/page/Page.svelte';
     import Column from '../../lib/components/Column.svelte';
     import WorkoutCard from '../../lib/workouts/pages/WorkoutCard.svelte';
-    import Center from '../../lib/components/container/Center.svelte';
     import TextField from '../../lib/components/TextField.svelte';
-    import TextButton from '../../lib/components/button/TextButton.svelte';
     import { WorkoutsPageController } from '../../lib/workouts/pages/workouts-page/workouts-page-controller';
     import Dialog from '../../lib/components/modal/Dialog.svelte';
+    import ActionButton from '../../lib/workouts/pages/workout-details-page/ActionButton.svelte';
 
     let controller = new WorkoutsPageController(workoutsStore);
     let newTrainingTitle;
@@ -31,21 +30,20 @@
         {/each}
     </Column>
 
-    <Center class='p-2'>
-        <TextButton on:click={() => newTrainingDialog.show()}>
-            NEW TRAINING
-        </TextButton>
-    </Center>
-
-    <Dialog bind:this={newTrainingDialog}
-            on:ok={() => controller.createWorkout(newTrainingTitle)}
-            okText='CREATE'>
-        <h1 class='text-black font-semibold tracking-wide'>NEW TRAINING</h1>
-        <TextField type='text'
-                   hint='Training title'
-                   outlined={true}
-                   bind:text={newTrainingTitle}
-        />
-    </Dialog>
+    <svelte:fragment slot='actionBar'>
+        <ActionButton label='TRAINING' icon='add_circle_outline' on:click={() => newTrainingDialog.show()} />
+    </svelte:fragment>
 
 </Page>
+
+
+<Dialog bind:this={newTrainingDialog}
+        on:ok={() => controller.createWorkout(newTrainingTitle)}
+        okText='CREATE'>
+    <h1 class='text-black font-semibold tracking-wide'>NEW TRAINING</h1>
+    <TextField type='text'
+               hint='Training title'
+               outlined={true}
+               bind:text={newTrainingTitle}
+    />
+</Dialog>

@@ -8,10 +8,10 @@
         WorkoutDetailsPageController
     } from '../../../lib/workouts/pages/workout-details-page/workout-details-page-controller';
     import { workoutsStore } from '../../../lib/stores';
-    import WorkoutActions from '../../../lib/workouts/pages/workout-details-page/WorkoutActions.svelte';
     import { goto } from '$app/navigation';
     import Dialog from '../../../lib/components/modal/Dialog.svelte';
-    import Row from '../../../lib/components/Row.svelte';
+    import TextField from '../../../lib/components/TextField.svelte';
+    import ActionButton from '../../../lib/workouts/pages/workout-details-page/ActionButton.svelte';
 
     const workoutId = parseInt($page.params.workoutId);
 
@@ -31,23 +31,33 @@
 
     let deleteTrainingDialog;
 
+    let newExerciseDialog;
+
+    let newExerciseTitle = '';
+
 </script>
 
 <Page {title}>
-    <Row mainAxisAlignment='end'>
-        <span class='material-icons-outlined text-2xl text-primary/75 text-right px-3'
-              on:click={() => deleteTrainingDialog.show()}>
-            folder_delete
-        </span>
-    </Row>
-
     {#if $controller.workout}
         <WorkoutDetails workout={$controller.workout} />
     {/if}
 
-    <WorkoutActions {workoutId} />
+    <svelte:fragment slot='actionBar'>
+        <ActionButton label='TRAINING' icon='delete' on:click={() => deleteTrainingDialog.show()} />
+        <ActionButton label='EXERCISE' icon='add_circle_outline' on:click={() => newExerciseDialog.show()} />
+    </svelte:fragment>
 
 </Page>
+
+
+<Dialog bind:this={newExerciseDialog}
+        on:ok={() => controller.createExercise(workoutId, newExerciseTitle)}
+        okText='CREATE'>
+
+    <h1 class='text-black font-semibold tracking-wide'>CREATE EXERCISE</h1>
+    <TextField hint='Title' outlined={true} bind:text={newExerciseTitle} />
+
+</Dialog>
 
 
 <Dialog bind:this={deleteTrainingDialog}

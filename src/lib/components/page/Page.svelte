@@ -2,6 +2,7 @@
 <script lang='ts'>
     import AppBar from './AppBar.svelte';
     import Drawer from '../navigation/Drawer.svelte';
+    import ActionsBar from '../../workouts/pages/workout-details-page/ActionsBar.svelte';
 
     let clazz = '';
     export { clazz as class };
@@ -21,4 +22,10 @@
         <slot></slot>
     </div>
     <Drawer visible={showDrawer} on:outclick={toggleDrawer} />
+
+    {#if $$slots.actionBar}
+        <ActionsBar>
+            <slot name='actionBar' />
+        </ActionsBar>
+    {/if}
 </div>

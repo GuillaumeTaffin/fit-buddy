@@ -9,9 +9,9 @@
     import Column from '../../../components/Column.svelte';
     import Card from '../../../components/Card.svelte';
     import SetInfo from './SetInfo.svelte';
-    import TextButton from '../../../components/button/TextButton.svelte';
     import SetInput from './SetInput.svelte';
     import { Set } from '../../workout';
+    import ActionButton from '../workout-details-page/ActionButton.svelte';
 
     const workoutId = parseInt($page.params.workoutId);
     const exerciseId = parseInt($page.params.exerciseId);
@@ -64,15 +64,9 @@
 </script>
 
 <Page {title}>
-    <Column class='px-3 pb-3 grow' gap='4'>
-        <Row mainAxisAlignment='end'>
-        <span class='material-icons-outlined text-2xl text-primary/75 text-right'
-              on:click={() => deleteExerciseDialog.show()}>
-            folder_delete
-        </span>
-        </Row>
+    <Column class='px-3 px-2 grow' gap='4'>
         <Column class='grow' gap='2'>
-            <h2 class='text-sm font-medium tracking-wider text-center'>SETS</h2>
+            <h2 class='text-base font-medium tracking-wider text-center'>SETS</h2>
             {#if exercise}
                 {#if exercise.sets?.length}
                     {#each exercise.sets.sort((n1, n2) => n1.id - n2.id) as set, i (set.id)}
@@ -95,8 +89,12 @@
 
         </Column>
 
-        <TextButton size='sm' on:click={() => createSetDialog.show()}>CREATE SET</TextButton>
     </Column>
+
+    <svelte:fragment slot='actionBar'>
+        <ActionButton label='EXERCISE' icon='delete' on:click={() => deleteExerciseDialog.show()} />
+        <ActionButton label='SET' icon='add_circle_outline' on:click={() => createSetDialog.show()} />
+    </svelte:fragment>
 
 </Page>
 

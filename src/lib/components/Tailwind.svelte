@@ -9,6 +9,7 @@ space-x-3
 space-x-2
 space-y-8
 space-y-2
+space-y-1
 flex-col-reverse
 shadow-lg
 shadow-none
