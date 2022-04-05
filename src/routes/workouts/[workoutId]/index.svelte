@@ -11,6 +11,7 @@
     import WorkoutActions from '../../../lib/workouts/pages/workout-details-page/WorkoutActions.svelte';
     import { goto } from '$app/navigation';
     import Dialog from '../../../lib/components/modal/Dialog.svelte';
+    import Row from '../../../lib/components/Row.svelte';
 
     const workoutId = parseInt($page.params.workoutId);
 
@@ -33,10 +34,13 @@
 </script>
 
 <Page {title}>
-    <span class='material-icons-outlined text-2xl text-primary/75 text-right px-3'
-          on:click={() => deleteTrainingDialog.show()}>
+    <Row mainAxisAlignment='end'>
+        <span class='material-icons-outlined text-2xl text-primary/75 text-right px-3'
+              on:click={() => deleteTrainingDialog.show()}>
             folder_delete
         </span>
+    </Row>
+
     <div class='grow overflow-y-auto'>
         {#if $controller.workout}
             <WorkoutDetails workout={$controller.workout} />

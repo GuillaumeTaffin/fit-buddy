@@ -65,10 +65,12 @@
 
 <Page {title}>
     <Column class='px-3 pb-3 grow' gap='4'>
+        <Row mainAxisAlignment='end'>
         <span class='material-icons-outlined text-2xl text-primary/75 text-right'
               on:click={() => deleteExerciseDialog.show()}>
             folder_delete
         </span>
+        </Row>
         <Column class='grow' gap='2'>
             <h2 class='text-sm font-medium tracking-wider text-center'>SETS</h2>
             {#if exercise}
