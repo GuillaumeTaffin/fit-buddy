@@ -7,8 +7,8 @@
     export let exercise: Exercise;
     export let workoutId: number;
 
-    $: totalReps = exercise.sets.map(s => s.reps).reduce((sum, current) => sum + current, 0);
-    $: totalWeight = exercise.sets.map(s => s.weight).reduce((sum, current) => sum + current, 0);
+    $: totalReps = exercise?.sets.map(s => s.reps).reduce((sum, current) => sum + current, 0) ?? 0;
+    $: totalWeight = exercise?.sets.map(s => s.weight).reduce((sum, current) => sum + current, 0) ?? 0;
 </script>
 
 <Card class='bg-white/75 px-4 py-2 max-w-md shadow-none'
@@ -18,7 +18,7 @@
         <p class='text-black/50 text-xs text-right'>
             {exercise.sets.length} sets -
             {totalReps} reps -
-            {totalWeight} kg
+            {totalWeight} lb
         </p>
     </Column>
 
