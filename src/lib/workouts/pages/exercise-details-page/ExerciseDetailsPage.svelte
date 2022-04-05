@@ -6,7 +6,6 @@
     import Page from '../../../../lib/components/page/Page.svelte';
     import Dialog from '../../../../lib/components/modal/Dialog.svelte';
     import Row from '../../../../lib/components/Row.svelte';
-    import OutlinedButton from '../../../components/button/OutlinedButton.svelte';
     import Column from '../../../components/Column.svelte';
     import Card from '../../../components/Card.svelte';
     import SetInfo from './SetInfo.svelte';
@@ -57,25 +56,25 @@
         deleteSetDialog.show();
     };
 
+    const deleteExercise = () => {
+        controller.deleteExercise(workoutId, exercise.id);
+        window.history.back();
+    };
+
 </script>
 
 <Page {title}>
     <Column class='px-3 pb-3 grow' gap='4'>
-        <Row mainAxisAlignment='end' class='pt-1'>
-            <OutlinedButton size='xs' on:click={() => deleteExerciseDialog.show()}>
-                DELETE
-            </OutlinedButton>
-        </Row>
+        <span class='material-icons-outlined text-2xl text-primary/75 text-right'
+              on:click={() => deleteExerciseDialog.show()}>
+            folder_delete
+        </span>
         <Column class='grow' gap='2'>
-            <Row gap='4'>
-                <p>TEMPO</p>
-                <p>1 0 1 0</p>
-            </Row>
-            <h2>SETS</h2>
+            <h2 class='text-sm font-medium tracking-wider text-center'>SETS</h2>
             {#if exercise}
                 {#if exercise.sets?.length}
                     {#each exercise.sets.sort((n1, n2) => n1.id - n2.id) as set, i (set.id)}
-                        <Card class='bg-white/75 py-4 px-2'>
+                        <Card class='bg-white/75 py-4 px-2' on:click={() => editSet(set)}>
                             <Row>
                                 <div class='grow grid grid-cols-3 divide-x divide-black/50'>
                                     <SetInfo data={set.reps} label='REPS' />
@@ -83,10 +82,8 @@
                                     <SetInfo data={set.rest} label='REST' />
                                 </div>
                                 <Row gap='3' class='pr-2'>
-                                    <span class='material-icons-outlined text-xl text-primary/50'
-                                          on:click={() => editSet(set)}>edit</span>
                                     <span class='material-icons-outlined text-xl text-danger/50'
-                                          on:click={() => showDeleteSetDialog(set.id)}>remove_circle_outline</span>
+                                          on:click|stopPropagation={() => showDeleteSetDialog(set.id)}>remove_circle_outline</span>
                                 </Row>
                             </Row>
                         </Card>
@@ -127,7 +124,7 @@
 </Dialog>
 
 <Dialog bind:this={deleteExerciseDialog}
-        on:ok={() => controller.deleteExercise(workoutId, exercise.id)}
+        on:ok={() => deleteExercise()}
         okBackgroundColor='danger'
         okText='DELETE'>
 
