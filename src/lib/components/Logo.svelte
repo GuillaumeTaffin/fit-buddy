@@ -4,4 +4,4 @@
     export { classes as class };
 </script>
 
-<img src='logo512.png' alt='Fit-Buddy logo' class='{classes}'>
+<img src='/logo512.png' alt='Fit-Buddy logo' class='{classes}'>

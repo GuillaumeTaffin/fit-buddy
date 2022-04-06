@@ -66,10 +66,10 @@
 <Page {title}>
     <Column class='px-3 px-2 grow' gap='4'>
         <Column class='grow' gap='2'>
-            <h2 class='text-base font-medium tracking-wider text-center'>SETS</h2>
+            <h2 class='text-base font-medium tracking-wider text-center md:text-left'>SETS</h2>
             {#if exercise?.sets?.length}
                 {#each exercise.sets.sort((n1, n2) => n1.id - n2.id) as set, i (set.id)}
-                    <Card class='bg-white/75 py-4 px-2' on:click={() => editSet(set)}>
+                    <Card class='bg-white/75 py-4 px-2 max-w-md' on:click={() => editSet(set)}>
                         <Row>
                             <div class='grow grid grid-cols-3 divide-x divide-black/50'>
                                 <SetInfo data={set.reps} label='reps' />

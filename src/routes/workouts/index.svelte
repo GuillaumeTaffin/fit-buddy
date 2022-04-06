@@ -24,7 +24,7 @@
 
 <Page title='trainings'>
 
-    <Column crossAxisAlignment='center' gap='2' class='grow w-full p-4 overflow-y-scroll'>
+    <Column gap='2' class='grow p-4 overflow-auto'>
         {#each workouts as workout (workout.id)}
             <WorkoutCard {workout} />
         {/each}
